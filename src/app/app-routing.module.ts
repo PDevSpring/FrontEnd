@@ -1,7 +1,43 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutComponent } from './components/about/about.component';
+import { AccountsettComponent } from './components/accountsett/accountsett.component';
+import { AccountssettingsComponent } from './components/accountssettings/accountssettings.component';
+import { AdminadsComponent } from './components/adminads/adminads.component';
+import { AdminareaComponent } from './components/adminarea/adminarea.component';
+import { AdminforumComponent } from './components/adminforum/adminforum.component';
+import { AdminprofilsettComponent } from './components/adminprofilsett/adminprofilsett.component';
+import { AdsComponent } from './components/ads/ads.component';
+import { ClientareaComponent } from './components/clientarea/clientarea.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { ForumComponent } from './components/forum/forum.component';
+import { GetstartedComponent } from './components/getstarted/getstarted.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { MessagesComponent } from './components/messages/messages.component';
+import { VisitfurnitureComponent } from './components/visitfurniture/visitfurniture.component';
+import { VisithousesComponent } from './components/visithouses/visithouses.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'', component:HomeComponent},
+  {path:'About', component:AboutComponent},
+  {path:'Contact', component:ContactComponent},
+  {path:'FurnitureModels', component:VisitfurnitureComponent}, 
+  {path:'HousesModels', component:VisithousesComponent},
+  {path:'Getstarted/Register', component:GetstartedComponent},
+  {path:'Getstarted/Login', component:LoginComponent},
+  {path:'Session/Connected!0/Home', component:ClientareaComponent},
+  {path:'Session/Connected!0/Home/Ads', component:AdsComponent},
+  {path:'Session/Connected!0/Home/Profil/Messages', component:MessagesComponent},
+  {path:'Session/Connected!0/Home/Profil/Froum', component:ForumComponent},
+  {path:'Session/Connected!0/Home/Profil/AccountSettings', component:AccountsettComponent},
+  {path:'Session/Connected!1/Home', component:AdminareaComponent},
+  {path:'Session/Connected!1/Home/Ads', component:AdminareaComponent},
+  {path:'Session/Connected!1/Home/Profil/Messages', component:AdminadsComponent},
+  {path:'Session/Connected!1/Home/Profil/Froum', component:AdminforumComponent},
+  {path:'Session/Connected!1/Home/Profil/AccountsSettings', component:AccountssettingsComponent},
+  {path:'Session/Connected!1/Home/Profil/AccountSettings', component:AdminprofilsettComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
