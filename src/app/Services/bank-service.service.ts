@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient ,HttpParams} from '@angular/common/http'
+import {HttpClient ,HttpParams} from '@angular/common/http';
 import {Bank} from "../Models/Bank";
 import {Agent} from "../Models/Agent";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class BankServiceService {
 
   constructor(private http:HttpClient) { }

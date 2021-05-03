@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient ,HttpParams} from '@angular/common/http'
+import {HttpClient ,HttpParams} from '@angular/common/http';
 import {Delivery} from "../Models/Delivery";
 import {Fourniture} from "../Models/Fourniture";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable(
+)
 export class ShoppingServiceService {
 
   constructor(private http:HttpClient) { }
