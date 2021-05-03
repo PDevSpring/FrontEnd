@@ -1,24 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/Models/user';
-import { ResgisterService } from 'src/app/Services/resgister.service';
 
 @Component({
-  selector: 'app-getstarted',
-  templateUrl: './getstarted.component.html',
-  styleUrls: ['./getstarted.component.css']
+  selector: 'app-banksettings',
+  templateUrl: './banksettings.component.html',
+  styleUrls: ['./banksettings.component.css']
 })
-export class GetstartedComponent implements OnInit {
+export class BanksettingsComponent implements OnInit {
 
-
-  user:User=new User("","","","","");
-  message :any ;  
-
-  
   ScriptElement: HTMLScriptElement;
   ScriptElement1: HTMLScriptElement;
   ScriptElement2: HTMLScriptElement;
   ScriptElement3: HTMLScriptElement;
-  constructor(private service:ResgisterService){
+  constructor(){
     this.ScriptElement = document.createElement('script'); 
     this.ScriptElement.src = "../../../assets/js/main.js" ;
     document.body.appendChild(this.ScriptElement);
@@ -34,20 +27,10 @@ export class GetstartedComponent implements OnInit {
     this.ScriptElement3 = document.createElement('script'); 
     this.ScriptElement3.src = "../../../assets/vendor/swiper/swiper-bundle.min.js" ;
     document.body.appendChild(this.ScriptElement3);
-   }
-
-   ngOnInit(): void {
   }
 
-   public ClientRegistration(){
-    let response = this.service.RegisterClient(this.user); 
-    console.log(this.user.firstName);
-    console.log(this.user.lastName);
-    console.log(this.user.email);
-    console.log(this.user.userName);
-    console.log(this.user.password); 
-    response.subscribe((data)=>this.message=data);
-  }
 
+  ngOnInit(): void {
+  }
 
 }

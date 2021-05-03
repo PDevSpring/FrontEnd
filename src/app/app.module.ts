@@ -21,6 +21,11 @@ import { AccountssettingsComponent } from './components/accountssettings/account
 import { AdminmessagesComponent } from './components/adminmessages/adminmessages.component';
 import { AdminprofilsettComponent } from './components/adminprofilsett/adminprofilsett.component';
 import { AdminforumComponent } from './components/adminforum/adminforum.component';
+import { LoginService } from './Services/login.service';
+import { ResgisterService } from './Services/resgister.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BanksettingsComponent } from './components/banksettings/banksettings.component';
 
 
 @NgModule({
@@ -43,13 +48,16 @@ import { AdminforumComponent } from './components/adminforum/adminforum.componen
     AccountssettingsComponent,
     AdminmessagesComponent,
     AdminprofilsettComponent,
-    AdminforumComponent
+    AdminforumComponent,
+    BanksettingsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ResgisterService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

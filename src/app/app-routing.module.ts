@@ -6,8 +6,10 @@ import { AccountssettingsComponent } from './components/accountssettings/account
 import { AdminadsComponent } from './components/adminads/adminads.component';
 import { AdminareaComponent } from './components/adminarea/adminarea.component';
 import { AdminforumComponent } from './components/adminforum/adminforum.component';
+import { AdminmessagesComponent } from './components/adminmessages/adminmessages.component';
 import { AdminprofilsettComponent } from './components/adminprofilsett/adminprofilsett.component';
 import { AdsComponent } from './components/ads/ads.component';
+import { BanksettingsComponent } from './components/banksettings/banksettings.component';
 import { ClientareaComponent } from './components/clientarea/clientarea.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { ForumComponent } from './components/forum/forum.component';
@@ -33,10 +35,11 @@ const routes: Routes = [
   {path:'Session/Connected!0/Home/Profil/AccountSettings', component:AccountsettComponent},
   {path:'Session/Connected!1/Home', component:AdminareaComponent},
   {path:'Session/Connected!1/Home/Ads', component:AdminareaComponent},
-  {path:'Session/Connected!1/Home/Profil/Messages', component:AdminadsComponent},
+  {path:'Session/Connected!1/Home/Profil/Messages', component:AdminmessagesComponent},
   {path:'Session/Connected!1/Home/Profil/Froum', component:AdminforumComponent},
   {path:'Session/Connected!1/Home/Profil/AccountsSettings', component:AccountssettingsComponent},
-  {path:'Session/Connected!1/Home/Profil/AccountSettings', component:AdminprofilsettComponent}
+  {path:'Session/Connected!1/Home/Profil/AccountSettings', component:AdminprofilsettComponent},
+  {path:'Session/Connected!1/Home/BanksSettings', component:BanksettingsComponent}
 ];
 
 @NgModule({

@@ -141,12 +141,12 @@
   <div class="swiper-wrapper">
     <div class="Registerform">
       <form class="Register">
-          <input type="text" placeholder="FirstName"  required />
-          <input type="text" placeholder="LastName"  required />
-          <input type="email" placeholder="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required/>
-          <input type="text" placeholder="Username"  required />
-          <input type="password"  placeholder="Password" pattern="[^0-9][A-Za-z]{2,20}" required/>
-          <input type="submit" value="Register" />
+          <input type="text" placeholder="FirstName" [(ngModel)]="user.firstName" name="first" required />
+          <input type="text" placeholder="LastName" [(ngModel)]="user.lastName" name="last" required />
+          <input type="email" placeholder="Email" [(ngModel)]="user.email" name="mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required/>
+          <input type="text" placeholder="Username" [(ngModel)]="user.userName" name="usernamee"  required />
+          <input type="password"  placeholder="Password" [(ngModel)]="user.password" name="pass" pattern="[^0-9][A-Za-z]{2,20}" required/>
+          <input type="submit" value="Register" (click)="ClientRegistration()" />
           <h5>If you already have an account <a routerLink="/Getstarted/Login"><u>SingIn</u></a></h5>
       </form>
     </div>
