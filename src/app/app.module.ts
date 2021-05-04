@@ -26,6 +26,9 @@ import { ResgisterService } from './Services/resgister.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BanksettingsComponent } from './components/banksettings/banksettings.component';
+import {LoansServiceService} from "./Services/loans-service.service";
+import {BankServiceService} from "./Services/bank-service.service";
+import {ShoppingServiceService} from "./Services/shopping-service.service";
 
 
 @NgModule({
@@ -57,7 +60,7 @@ import { BanksettingsComponent } from './components/banksettings/banksettings.co
     HttpClientModule,
     FormsModule
   ],
-  providers: [ResgisterService,LoginService],
+  providers: [ResgisterService, LoginService, LoansServiceService, BankServiceService, ShoppingServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

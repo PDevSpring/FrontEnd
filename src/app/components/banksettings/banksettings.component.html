@@ -140,9 +140,189 @@
 
    </div>
  </nav><!-- End Header/Navbar -->
+<div>
+
+<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
 
- <!-- ======= Footer ======= -->
+  <h3>Banks</h3>
+
+  <br>
+
+  <table ID="table1" >
+
+  <tr>
+    <th>Name</th>
+    <th>adress</th>
+    <th>description</th>
+    <th>marge Interetbank</th>
+    <th>taux</th>
+  </tr>
+
+  <tr>
+
+      <td>
+        <input [(ngModel)]="banke.namebank" />
+      </td>
+      <td>
+        <input [(ngModel)]="banke.adressbank" />
+      </td>
+      <td>
+        <input [(ngModel)]="banke.descbank" />
+      </td>
+      <td>
+        <input [(ngModel)]="banke.margeInteretbank" />
+      </td>
+      <td>
+        <input [(ngModel)]="banke.taux" />
+      </td>
+  </tr>
+</table> <div>
+  <button (click)="AddBank(banke)" onClick="window.location.reload();">Add</button>
+  <button onClick="window.location.reload();" onClick="window.location.reload();">REFRESH</button>
+
+</div>
+  <br>
+
+  <p>Bank list</p>
+  <br>
+<div>
+  <table id="table"  class="table table-bordered table-condensed table-striped">
+    <thead>
+    <tr>
+
+      <th>ID</th>
+      <th>Name</th>
+      <th>Adress</th>
+      <th>Description</th>
+      <th>Marge Interet</th>
+      <th>Taux</th>
+      <th colspan="2">|     OPTION</th>
+
+    </tr>
+      </thead>
+<tbody>
+    <tr *ngFor="let bank of banklist ;" (click)="onSelect(bank) " >
+      <td >{{bank.bankId}}</td>
+      <td>{{bank.namebank}}</td>
+      <td>{{bank.adressbank}}</td>
+      <td contenteditable>{{bank.descbank}}</td>
+      <td>{{bank.margeInteretbank}}</td>
+      <td>{{bank.taux}}</td>
+
+      <td><button (click)="delBank(bank.bankId)" onClick="window.location.reload();">Delete</button></td>
+
+
+</tbody>
+  </table>
+
+  <div *ngIf="selectedbank">
+
+    <h2>{{selectedbank.namebank | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedbank.bankId}}</div>
+    <div>
+      <label for="bank-name">Hero name: </label>
+      <input id="bank-name" [(ngModel)]="selectedbank.namebank" placeholder="name">
+      <br>
+      <label for="bank-desc">bank description: </label>
+      <input id="bank-desc" [(ngModel)]="selectedbank.descbank" placeholder="name">
+      <br>
+      <label for="bank-add">bank address: </label>
+      <input id="bank-add" [(ngModel)]="selectedbank.adressbank" placeholder="name">
+      <br>
+      <label for="bank-marge">bank marge: </label>
+      <input id="bank-marge" [(ngModel)]="selectedbank.margeInteretbank" placeholder="name">
+      <br>
+      <label for="bank-taux">bank marge: </label>
+      <input id="bank-taux" [(ngModel)]="selectedbank.taux" placeholder="name">
+
+    </div>
+    <td><button (click)="upBank(selectedbank,selectedbank.bankId)">Update</button></td>
+  </div>
+
+  <div *ngIf="selectedbank">
+
+  <br>
+    <h2>{{selectedbank.namebank | uppercase}} Add Agent</h2>
+  <table ID="tableagent" >
+
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>datenaissance</th>
+      <th>Adress </th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+
+    <tr>
+
+      <td>
+        <input [(ngModel)]="agent.firstname" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.lastname" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.datenaissance" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.adress" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.email" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.phone" />
+      </td>
+    </tr>
+  </table>
+    <div>
+  <button (click)="AddAg(agent,selectedbank.bankId)"  onClick="window.location.reload();">Add</button>
+
+  <br>
+
+    </div>
+
+</div>
+  <h2>List Agents</h2>
+  <button onClick="window.location.reload();" >REFRESH</button>
+  <table id="table2"  class="table table-bordered table-condensed table-striped">
+    <thead>
+    <tr>
+
+      <th>ID</th>
+      <th>firstname</th>
+      <th>lastname</th>
+      <th>datenaissance</th>
+      <th>adress</th>
+      <th>email</th>
+      <th>phone</th>
+      <th colspan="2">|     OPTION</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let agent of agentslist ;"  >
+      <td >{{agent.id}}</td>
+      <td>{{agent.firstname}}</td>
+      <td>{{agent.lastname}}</td>
+      <td>{{agent.datenaissance}}</td>
+      <td>{{agent.adress}}</td>
+      <td>{{agent.email}}</td>
+      <td>{{agent.phone}}</td>
+
+
+      <td><button (click)="delAgent(agent.id)"  onClick="window.location.reload();">Delete</button></td>
+    </tr></tbody></table></div></div>
+
+
+      <!-- ======= Footer ======= -->
  <section class="section-footer">
   <div class="container">
     <div class="row">
@@ -153,8 +333,8 @@
           </div>
           <div class="w-body-a">
             <p class="w-text-a color-text-a">
-              Our Agency will provide the best Services for you ! 
-              For more Informations : 
+              Our Agency will provide the best Services for you !
+              For more Informations :
             </p>
           </div>
           <div class="w-footer-a">
@@ -266,4 +446,6 @@
         </div>
       </div>
     </div>
-  </div>
+  </div></footer>
+
+

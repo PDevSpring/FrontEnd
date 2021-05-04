@@ -1,12 +1,13 @@
 export class Agent {
   constructor(
-    public  Idagent:number,
-    public Firstname:string,
-    public Lastname:string,
+    public  id:number,
+    public firstname:string,
+    public lastname:string,
     public datenaissance:any,
-    public Email:string,
-    public Phone:number,
-    public Adress:string
+    public email:string,
+    public phone:number,
+    public adress: string
+
 
   ){}
 }
