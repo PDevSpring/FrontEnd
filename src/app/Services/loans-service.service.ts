@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Bank} from '../Models/Bank';
 import {Loans} from '../Models/Loans';
 import {NgModel} from '@angular/forms';
+import {Agent} from '../Models/Agent';
 
 @Injectable({
   providedIn: 'root'
@@ -25,14 +26,17 @@ export class LoansServiceService {
   public getAllSimulations(): Observable<Loans[]>{
       return this.http.get<Loans[]>('http://localhost:3000/App/Loan/getAllloans'); }
 
-  public getAllSimulationsByNameBank(nameBank: string): any{
-    const url = 'http://localhost:3000/App/Loan/getAllloans/' + nameBank;
-    return this.http.get(url); }
+  public getAllSimulationsByNameBank(nameBank: string): Observable<Loans[]> {
+    const url = 'http://localhost:3000/App/Loan/getAllloansBynameBank/' + nameBank;
+
+    return this.http.get<Loans[]>(url); }
 
 
-  public getagentByNameBank(nameBank: string): any{
+  public getagentByNameBank(nameBank: string): Observable<Agent>{
         const url = 'http://localhost:3000/App/Loan/getagent/' + nameBank;
-        return this.http.get(url); }
+        console.log(url);
+        return this.http.get<Agent>(url);
+  }
 
         public deleteSimulationById(idlo: number){
     console.log(idlo);

@@ -33,7 +33,7 @@ export class BanksettingsComponent implements OnInit {
   banke = new Bank(0, '', '', '', 0, 0);
   bankloan = new Bank(0, '', '', '', 0, 0);
 
-  agent = new Agent(0, '', '', '', '', 0, '');
+  agent = new Agent(0, '', '', '', '', 0, '', '');
   loans = new Loans(0, '', 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0 );
   ScriptElement: HTMLScriptElement;
   ScriptElement1: HTMLScriptElement;

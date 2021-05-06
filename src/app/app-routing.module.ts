@@ -19,12 +19,13 @@ import { LoginComponent } from './components/login/login.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { VisitfurnitureComponent } from './components/visitfurniture/visitfurniture.component';
 import { VisithousesComponent } from './components/visithouses/visithouses.component';
+import {AgentconfirmComponent} from "./components/agent/agentconfirm/agentconfirm.component";
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'About', component:AboutComponent},
   {path:'Contact', component:ContactComponent},
-  {path:'FurnitureModels', component:VisitfurnitureComponent}, 
+  {path:'FurnitureModels', component:VisitfurnitureComponent},
   {path:'HousesModels', component:VisithousesComponent},
   {path:'Getstarted/Register', component:GetstartedComponent},
   {path:'Getstarted/Login', component:LoginComponent},
@@ -39,7 +40,8 @@ const routes: Routes = [
   {path:'Session/Connected!1/Home/Profil/Froum', component:AdminforumComponent},
   {path:'Session/Connected!1/Home/Profil/AccountsSettings', component:AccountssettingsComponent},
   {path:'Session/Connected!1/Home/Profil/AccountSettings', component:AdminprofilsettComponent},
-  {path:'Session/Connected!1/Home/BanksSettings', component:BanksettingsComponent}
+  {path:'Session/Connected!1/Home/BanksSettings', component:BanksettingsComponent},
+  {path:'Session/Connected!1/Home/Agent/Confirm', component:AgentconfirmComponent}
 ];
 
 @NgModule({

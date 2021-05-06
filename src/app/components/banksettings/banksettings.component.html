@@ -109,6 +109,10 @@
         <li class="nav-item">
           <a class="nav-link active" routerLink="/Session/Connected!1/Home">Home</a>
         </li>
+         <li class="nav-item">
+           <a class="nav-link " routerLink="/Session/Connected!1/Home/Agent/Confirm" >agent</a>
+         </li>
+
 
         <li class="nav-item">
           <a class="nav-link " routerLink="/Session/Connected!1/Home/Ads" >Ads</a>
@@ -253,7 +257,7 @@
 
   <br>
     <h2>{{selectedbank.namebank | uppercase}} Add Agent</h2>
-  <table ID="tableagent" >
+  <table ID="tableaggent" >
 
     <tr>
       <th>Firstname</th>
@@ -261,7 +265,9 @@
       <th>datenaissance</th>
       <th>Adress </th>
       <th>Email</th>
+      <th>Password</th>
       <th>Phone</th>
+
     </tr>
 
     <tr>
@@ -280,6 +286,9 @@
       </td>
       <td>
         <input [(ngModel)]="agent.email" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.password" />
       </td>
       <td>
         <input [(ngModel)]="agent.phone" />
@@ -307,6 +316,7 @@
       <th>datenaissance</th>
       <th>adress</th>
       <th>email</th>
+      <th>password</th>
       <th>phone</th>
       <th colspan="2">|     OPTION</th>
 
@@ -320,6 +330,7 @@
       <td>{{agent.datenaissance}}</td>
       <td>{{agent.adress}}</td>
       <td>{{agent.email}}</td>
+      <td>{{agent.password}}</td>
       <td>{{agent.phone}}</td>
 
 

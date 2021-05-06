@@ -26,9 +26,10 @@ import { ResgisterService } from './Services/resgister.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BanksettingsComponent } from './components/banksettings/banksettings.component';
-import {LoansServiceService} from "./Services/loans-service.service";
-import {BankServiceService} from "./Services/bank-service.service";
-import {ShoppingServiceService} from "./Services/shopping-service.service";
+import {LoansServiceService} from './Services/loans-service.service';
+import {BankServiceService} from './Services/bank-service.service';
+import {ShoppingServiceService} from './Services/shopping-service.service';
+import { AgentconfirmComponent } from './components/agent/agentconfirm/agentconfirm.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import {ShoppingServiceService} from "./Services/shopping-service.service";
     AdminmessagesComponent,
     AdminprofilsettComponent,
     AdminforumComponent,
-    BanksettingsComponent
+    BanksettingsComponent,
+    AgentconfirmComponent
   ],
   imports: [
     BrowserModule,
