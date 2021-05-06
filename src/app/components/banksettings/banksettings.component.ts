@@ -5,6 +5,7 @@ import {Agent} from '../../Models/Agent';
 import {LoansServiceService} from '../../Services/loans-service.service';
 import {BankServiceService} from '../../Services/bank-service.service';
 import {Observable} from 'rxjs';
+import {NgModel} from '@angular/forms';
 
 @Component({
   selector: 'app-banksettings',
@@ -30,7 +31,10 @@ export class BanksettingsComponent implements OnInit {
     this.ScriptElement3.src = '../../../assets/vendor/swiper/swiper-bundle.min.js';
     document.body.appendChild(this.ScriptElement3); }
   banke = new Bank(0, '', '', '', 0, 0);
+  bankloan = new Bank(0, '', '', '', 0, 0);
+
   agent = new Agent(0, '', '', '', '', 0, '');
+  loans = new Loans(0, '', 0, '', 0, 0, 0, 0, 0, 0, 0, 0, 0 );
   ScriptElement: HTMLScriptElement;
   ScriptElement1: HTMLScriptElement;
   ScriptElement2: HTMLScriptElement;
@@ -40,9 +44,12 @@ export class BanksettingsComponent implements OnInit {
   loaanlist: Loans[] = [];
  banklist: Bank[] = [];
   banksell: Bank[] = [];
-
+   a = '';
   agentslist: Agent[] = [];
   selectedbank?: Bank;
+  selectedloan?: Loans;
+  selectedbankforloan?: Bank;
+
 
 
 
@@ -58,15 +65,18 @@ export class BanksettingsComponent implements OnInit {
       data => {
         this.agentslist = data; });
 
-    this.loanservice.getAllSimulations().subscribe(
-      data => {
-        this.loaanlist = data; }
-    );
-
+    this.loanservice.getAllSimulations().subscribe((data: any[]) => {
+      console.log(data);
+      this.loaanlist = data; });
   }
   onSelect(bank: Bank): void {
     this.selectedbank = bank;
   }
+
+  onSelectbankloan(bank: Bank): string {
+    return  this.a = bank.namebank;
+  }
+
 
   public AddBank(bank: Bank){
     return this.bankservice.AddBank(bank).subscribe((res) => {
@@ -77,6 +87,7 @@ export class BanksettingsComponent implements OnInit {
     return this.bankservice.Addagent(agent, bankId).subscribe((res) => {
     });
   }
+
 
   public upBank(bank: Bank, bankIdd: number) {
     return this.bankservice.updateBank(bank, bankIdd);
@@ -100,6 +111,26 @@ export class BanksettingsComponent implements OnInit {
     return this.bankservice.findbankname(namebank);
   }
 
+
+  onSelectloan(loan: Loans): void {
+    this.selectedloan = loan;
+  }
+
+  public AddLoan(years: number, salaire: number, idad: number, nameBank: string, iduser: number) {
+    return this.loanservice.addSimulate(years, salaire, idad, nameBank, iduser).subscribe();
+  }
+
+  public delLoan(loanid: number){
+    return this.loanservice.deleteSimulationById(loanid);
+  }
+
+  public confirm(loanid: number){
+    return this.loanservice.confirmSimulation(loanid);
+  }
+
+  public unconfirm(loanid: number){
+    return this.loanservice.unconfirmSimulation(loanid);
+  }
 }
 
 

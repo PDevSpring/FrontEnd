@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import {HttpClient , HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {Bank} from "../Models/Bank";
-import {Loans} from "../Models/Loans";
+import {Bank} from '../Models/Bank';
+import {Loans} from '../Models/Loans';
+import {NgModel} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class LoansServiceService {
     const url = 'http://localhost:3000/App/Loan/Simulate/' + idad + '/' + nameBank + '/' + years + '/' + salaire;
     return this.http.post(url, null); }
 
-  public addSimulate(years: number, salaire: number, idad: number , nameBank: string , iduser: number): any{
+  public addSimulate(years: number, salaire: number, idad: number, nameBank: string, iduser: number): any{
       const url = 'http://localhost:3000/App/Loan/addloan/' + idad + '/' + iduser + '/' + nameBank + '/' + years + '/' + salaire;
       return this.http.post(url, null); }
 
@@ -33,17 +34,24 @@ export class LoansServiceService {
         const url = 'http://localhost:3000/App/Loan/getagent/' + nameBank;
         return this.http.get(url); }
 
-  public deleteSimulationById(id: number): any{
-        const url = 'http://localhost:3000/App/Loan/getagent/' + id;
-        return this.http.delete(url); }
-
+        public deleteSimulationById(idlo: number){
+    console.log(idlo);
+    const url = 'http://localhost:3000/App/Loan/deleteById/' + idlo;
+    console.log(url);
+    return this.http.delete(url).subscribe(data => {
+      console.log(data);
+    }); }
 
 
   public confirmSimulation(id: number): any{
         const url = 'http://localhost:3000/App/Loan/confirm/' + id;
-        return this.http.put(url, null); }
+        return this.http.put(url, null).subscribe(data => {
+          console.log(data); });
+  }
 
 
   public unconfirmSimulation(id: number): any{
         const url = 'http://localhost:3000/App/Loan/unconfirm/' + id;
-        return this.http.put(url, null); }}
+        return this.http.put(url, null).subscribe(data => {
+          console.log(data); }); }
+}

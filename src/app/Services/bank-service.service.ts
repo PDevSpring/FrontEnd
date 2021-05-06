@@ -32,6 +32,8 @@ export class BankServiceService {
 
 
 
+
+
   public Addagent(agent: Agent, bankId: number) {
     console.log(agent);
 
@@ -88,6 +90,7 @@ export class BankServiceService {
     findbankname(namebank: string): any{
       const url = 'http://localhost:3000/App/Bank/getBankname/' + namebank;
       return this.http.get(url); }
+
 
 
 }
