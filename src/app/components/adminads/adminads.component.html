@@ -111,7 +111,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link " routerLink="/Session/Connected!1/Home/Ads" >Ads</a>
+          <a class="nav-link " routerLink="/Session/Connected!1/Home/Ads" routerLinkActive="active">Ads</a>
         </li>
 
         <li class="nav-item">
@@ -124,7 +124,7 @@
             <a class="dropdown-item " routerLink="/Session/Connected!1/Home/Profil/Messages" >Messages</a>
             <a class="dropdown-item " routerLink="/Session/Connected!1/Home/Profil/Froum" >Forum</a>
             <a class="dropdown-item " routerLink="/Session/Connected!1/Home/Profil/AccountSettings" >Profil Settings</a>
-            <a class="dropdown-item " routerLink="/" >Logout</a>
+            <a class="dropdown-item " routerLink="/" (click)="appLogout()" >Logout</a>
           </div>
         </li>
 

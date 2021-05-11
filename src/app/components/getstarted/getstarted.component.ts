@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/Models/user';
 import { ResgisterService } from 'src/app/Services/resgister.service';
 
@@ -18,7 +19,7 @@ export class GetstartedComponent implements OnInit {
   ScriptElement1: HTMLScriptElement;
   ScriptElement2: HTMLScriptElement;
   ScriptElement3: HTMLScriptElement;
-  constructor(private service:ResgisterService){
+  constructor(private service:ResgisterService,private router:Router){
     this.ScriptElement = document.createElement('script'); 
     this.ScriptElement.src = "../../../assets/js/main.js" ;
     document.body.appendChild(this.ScriptElement);
@@ -41,12 +42,8 @@ export class GetstartedComponent implements OnInit {
 
    public ClientRegistration(){
     let response = this.service.RegisterClient(this.user); 
-    console.log(this.user.firstName);
-    console.log(this.user.lastName);
-    console.log(this.user.email);
-    console.log(this.user.userName);
-    console.log(this.user.password); 
     response.subscribe((data)=>this.message=data);
+    this.router.navigate(['/LoadingWait']);
   }
 
 

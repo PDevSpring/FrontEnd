@@ -1,19 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { LoginService } from 'src/app/Services/login.service';
 
 @Component({
-  selector: 'app-messages',
-  templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css']
+  selector: 'app-verification',
+  templateUrl: './verification.component.html',
+  styleUrls: ['./verification.component.css']
 })
-export class MessagesComponent implements OnInit {
+export class VerificationComponent implements OnInit {
 
   ScriptElement: HTMLScriptElement;
   ScriptElement1: HTMLScriptElement;
   ScriptElement2: HTMLScriptElement;
   ScriptElement3: HTMLScriptElement;
-  constructor(private service:LoginService,private router : Router){
+  constructor(){
     this.ScriptElement = document.createElement('script'); 
     this.ScriptElement.src = "../../../assets/js/main.js" ;
     document.body.appendChild(this.ScriptElement);
@@ -32,11 +30,6 @@ export class MessagesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  appLogout(){
-    this.service.logoutUser();
-    this.router.navigate(['/'])
   }
 
 }

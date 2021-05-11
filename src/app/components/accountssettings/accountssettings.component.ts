@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/Services/login.service';
+import { UserserviceService } from 'src/app/Services/userservice.service';
 
 @Component({
   selector: 'app-accountssettings',
@@ -11,7 +14,7 @@ export class AccountssettingsComponent implements OnInit {
   ScriptElement1: HTMLScriptElement;
   ScriptElement2: HTMLScriptElement;
   ScriptElement3: HTMLScriptElement;
-  constructor(){
+  constructor(private service:LoginService,private serviceu:UserserviceService,private router : Router){
     this.ScriptElement = document.createElement('script'); 
     this.ScriptElement.src = "../../../assets/js/main.js" ;
     document.body.appendChild(this.ScriptElement);
@@ -30,6 +33,18 @@ export class AccountssettingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+
+  getallusers(){
+    this.serviceu.getAllUsers().subscribe(res => 
+      console.log(res)
+      )
+  }
+  
+  appLogout(){
+    this.service.logoutUser();
+    this.router.navigate(['/'])
   }
 
 }

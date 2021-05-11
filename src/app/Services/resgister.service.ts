@@ -10,6 +10,7 @@ export class ResgisterService {
   constructor(private http:HttpClient) { }
 
   public RegisterClient(user : User){
-    return this.http.post("http://localhost:3000/home/register",user,{responseType:'text' as 'json'}); 
+    return this.http.post("http://localhost:3000/home/register",user); 
   }
+
 } 

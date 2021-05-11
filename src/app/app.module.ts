@@ -26,6 +26,10 @@ import { ResgisterService } from './Services/resgister.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BanksettingsComponent } from './components/banksettings/banksettings.component';
+import { CookieService } from 'ngx-cookie-service';
+import { VerificationComponent } from './components/verification/verification.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { UserserviceService } from './Services/userservice.service';
 
 
 @NgModule({
@@ -49,7 +53,9 @@ import { BanksettingsComponent } from './components/banksettings/banksettings.co
     AdminmessagesComponent,
     AdminprofilsettComponent,
     AdminforumComponent,
-    BanksettingsComponent
+    BanksettingsComponent,
+    VerificationComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +63,7 @@ import { BanksettingsComponent } from './components/banksettings/banksettings.co
     HttpClientModule,
     FormsModule
   ],
-  providers: [ResgisterService,LoginService],
+  providers: [ResgisterService,LoginService,CookieService,UserserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

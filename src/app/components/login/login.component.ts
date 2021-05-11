@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { LoginRequest } from 'src/app/Models/loginRequest';
+import { Token } from 'src/app/Models/token';
+import { LoginService } from 'src/app/Services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -7,11 +12,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+  loginRequest:LoginRequest=new LoginRequest("","");
+  token :Token = new Token("")  ;
+  res:any={}; 
+
   ScriptElement: HTMLScriptElement;
   ScriptElement1: HTMLScriptElement;
   ScriptElement2: HTMLScriptElement;
   ScriptElement3: HTMLScriptElement;
-  constructor(){
+  constructor(private service:LoginService, private router : Router, private cookie:CookieService){
     this.ScriptElement = document.createElement('script'); 
     this.ScriptElement.src = "../../../assets/js/main.js" ;
     document.body.appendChild(this.ScriptElement);
@@ -30,6 +39,35 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
   }
+
+  appLogin(){
+    this.service.loginUser(this.loginRequest).subscribe(res => { 
+      this.cookie.set('token',res.jwt);
+      this.service.getUserDetails(this.cookie.get('token')).subscribe(data => {
+        if ((data.enabled) && (data.role==="Client")) {
+          this.router.navigate(['/Session/Connected!0/Home']);
+        }
+        if ((data.enabled) && (data.role==="Admin")) {
+          this.router.navigate(['/Session/Connected!1/Home']);
+        }
+      } )
+        
+    },
+    err => console.log(err)
+    )
+  
+    
+  }
+
+/*  parseObject(obj:any)
+{
+   for(var key in obj)
+   {
+      return (obj[key])
+   }
+}*/
+
 
 }

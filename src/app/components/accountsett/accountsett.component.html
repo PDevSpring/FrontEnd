@@ -119,8 +119,8 @@
           <div class="dropdown-menu">
             <a class="dropdown-item " routerLink="/Session/Connected!0/Home/Profil/Messages" >Messages</a>
             <a class="dropdown-item " routerLink="/Session/Connected!0/Home/Profil/Froum" >Forum</a>
-            <a class="dropdown-item " routerLink="/Session/Connected!0/Home/Profil/AccountSettings" >Account Settings</a>
-            <a class="dropdown-item " routerLink="/" >Logout</a>
+            <a class="dropdown-item " routerLink="/Session/Connected!0/Home/Profil/AccountSettings" routerLinkActive="active" >Account Settings</a>
+            <a class="dropdown-item " routerLink="/" (click)="appLogout()" >Logout</a>
           </div>
         </li>
 
@@ -132,6 +132,31 @@
 
    </div>
  </nav><!-- End Header/Navbar -->
+
+
+ <div class="intro intro-carousel swiper-container position-relative">
+
+  <div class="swiper-wrapper">
+    <div class="containerprof">
+      <div class ="subcontainer">  
+        <div class="avatar">
+            <img src="https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTU0NjQzOTk4OTQ4OTkyMzQy/ansel-elgort-poses-for-a-portrait-during-the-baby-driver-premiere-2017-sxsw-conference-and-festivals-on-march-11-2017-in-austin-texas-photo-by-matt-winkelmeyer_getty-imagesfor-sxsw-square.jpg" alt="Circle Image" class="img-raised rounded-circle img-fluid" >
+        </div>
+        <div class="Registerform">
+          <form class="Register">
+              <input type="text" placeholder="FirstName" required />
+              <input type="text" placeholder="LastName" required />
+              <input type="email" placeholder="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required/>
+              <input type="text" placeholder="Username"  required />
+              <input type="password"  placeholder="Password" pattern="[^0-9][A-Za-z]{2,20}" required/>
+              <input type="submit" value="Save"  />
+          </form>
+        </div>
+      </div>  
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div><!-- End Intro Section -->
 
 
  <!-- ======= Footer ======= -->

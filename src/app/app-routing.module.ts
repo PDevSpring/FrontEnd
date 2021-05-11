@@ -15,8 +15,10 @@ import { ContactComponent } from './components/contact/contact.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { GetstartedComponent } from './components/getstarted/getstarted.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoadingComponent } from './components/loading/loading.component';
 import { LoginComponent } from './components/login/login.component';
 import { MessagesComponent } from './components/messages/messages.component';
+import { VerificationComponent } from './components/verification/verification.component';
 import { VisitfurnitureComponent } from './components/visitfurniture/visitfurniture.component';
 import { VisithousesComponent } from './components/visithouses/visithouses.component';
 
@@ -39,7 +41,9 @@ const routes: Routes = [
   {path:'Session/Connected!1/Home/Profil/Froum', component:AdminforumComponent},
   {path:'Session/Connected!1/Home/Profil/AccountsSettings', component:AccountssettingsComponent},
   {path:'Session/Connected!1/Home/Profil/AccountSettings', component:AdminprofilsettComponent},
-  {path:'Session/Connected!1/Home/BanksSettings', component:BanksettingsComponent}
+  {path:'Session/Connected!1/Home/BanksSettings', component:BanksettingsComponent},
+  {path:'Getstarted/Register/AccountVerified', component:VerificationComponent},
+  {path:'LoadingWait',component:LoadingComponent}
 ];
 
 @NgModule({

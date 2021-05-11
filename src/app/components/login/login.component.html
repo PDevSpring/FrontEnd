@@ -141,9 +141,9 @@
   <div class="swiper-wrapper">
     <div class="loginform">
         <form class="login">
-            <input type="text" placeholder="Username"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"/>
-            <input type="password"  placeholder="Password" pattern="[^0-9][A-Za-z]{2,20}"/>
-            <input type="submit" value="Login"/>
+            <input type="text" placeholder="Username" [(ngModel)]="loginRequest.username" name="username"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"/>
+            <input type="password"  placeholder="Password" [(ngModel)]="loginRequest.password" name="pass" pattern="[^0-9][A-Za-z]{2,20}"/>
+            <input type="submit" value="Login" (click)="appLogin()"/>
             <h5>Don't Have An Account ? <a routerLink="/Getstarted/Register" routerLinkActive="active"><u>Register</u></a></h5>
           </form>
     </div>
