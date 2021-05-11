@@ -21,6 +21,7 @@ import { VisitfurnitureComponent } from './components/visitfurniture/visitfurnit
 import { VisithousesComponent } from './components/visithouses/visithouses.component';
 import {AgentconfirmComponent} from './components/agent/agentconfirm/agentconfirm.component';
 import {SimulateComponent} from './components/simulate/simulate.component';
+import {FournituresareaComponent} from "./components/fournituresarea/fournituresarea.component";
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path:'Session/Connected!0/Home', component:ClientareaComponent},
   {path:'Session/Connected!0/Home/Simulate', component:SimulateComponent},
   {path:'Session/Connected!0/Home/Ads', component:AdsComponent},
+  {path:'Session/Connected!0/Home/Furniture', component:FournituresareaComponent},
   {path:'Session/Connected!0/Home/Profil/Messages', component:MessagesComponent},
   {path:'Session/Connected!0/Home/Profil/Froum', component:ForumComponent},
   {path:'Session/Connected!0/Home/Profil/AccountSettings', component:AccountsettComponent},

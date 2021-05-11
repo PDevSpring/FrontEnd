@@ -114,10 +114,10 @@
           <a class="nav-link " routerLink="/Session/Connected!0/Home/Ads" >Ads</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link " routerLink="/Session/Connected!0/Home/Furniture" >Fournitures</a>
+          <a class="nav-link  active" routerLink="/Session/Connected!0/Home/Furniture" >Fournitures</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/Session/Connected!0/Home/Simulate">Simulation</a>
+          <a class="nav-link " routerLink="/Session/Connected!0/Home/Simulate">Simulation</a>
         </li>
 
 
@@ -139,152 +139,6 @@
 
   </div>
 </nav><!-- End Header/Navbar -->
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-<div class="container">
-  <div class="row align-items-start">
-    <div class="col">
-    </div>
-    <div class="col">
-      <h2>Simulation of loan</h2>
-      <br>
-    </div>
-    <div class="col">
-    </div>
-  </div></div>
-
-  <div class="container">
-    <div class="row align-items-start">
-      <div class="col">
-        <form >
-          <h2>Put information </h2>
-          <div class="container-sm bg-light" >
-          <div class="form-group">
-            <h3>Ad</h3>
-            <input class="form-control" type="number"
-                   #addid/>
-          </div>
-
-          <div class="form-group">
-            <h3>Bank</h3>
-            <div *ngFor="let bank of banklist ;" (click)="onSelectbankloan(bank) " >
-              <ul>
-                <div class="col-sm-9">
-                  <input  type="checkbox"> <a>      {{bank.namebank}}</a>
-                </div>
-              </ul>
-            </div>
-          </div>
-
-          <div class="form-group">
-
-            <h3>Salary</h3>
-            <div class="col-sm">
-              <input class="form-control" type="number"
-                     #sal/></div>
-          </div>
-
-          <div class="form-group">
-
-            <h3>Years</h3>
-            <div class="col-sm">
-              <input class="form-control" type="number"
-                     #yeaars/></div>
-          </div>
-
-          <div class="form-group">
-            <br>
-            <div>
-            <button  (click)="Simulate(yeaars.valueAsNumber,sal.valueAsNumber,addid.valueAsNumber,a)"
-                     class="btn btn-success">Simulate</button>
-            </div></div>
-          </div>
-        </form>
-      </div>
-      <div class="col">
-
-          <br>
-          <h2 class="bi-list-nested">Your Loan Simulation</h2>
-        <div class="align-items-center"> <small>smilutaion information generate down here</small></div>
-        <div class="container-sm bg-light">
-
-            <table id="tableloanslist"  class="table table-bordered table-condensed table-striped">
-
-              <tr>
-                <th>prix product</th><td >{{loans.Prixprod}}</td>
-              </tr>
-              <tr>
-                <th>client salary</th><td >{{loans.Salaire}}</td>
-              </tr>
-
-              <tr>
-                <th>Interet</th>                <td >{{loans.Interet}}</td>
-
-              </tr>
-              <tr>
-                <th>Interetall</th>  <td >{{loans.Interetall}}</td>
-              </tr>
-              <tr>
-                <th>MontantRemb</th>                <td >{{loans.MontantRemb}}</td>
-
-              </tr>
-
-              <tr>
-                <th>Principale</th>                <td >{{loans.Principale}}</td>
-
-              </tr>
-
-              <tr>
-                <th>Mensuel</th>                <td >{{loans.Mensuel}}</td>
-
-              </tr>
-
-              <tr>
-                <th>Mensualite</th>                <td >{{loans.Mensualite}}</td>
-
-              </tr>
-
-              <tr>
-                <th>Rembouresement Capacity</th>                <td >{{loans.CapaciteRembouresement}}</td>
-
-              </tr>
-
-              <tr>
-                <th>Taux</th>                <td >{{loans.Taux}}</td>
-
-              </tr>
-
-            </table></div>  </div>
-
-
-
-
-    </div></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- ======= Footer ======= -->
@@ -411,4 +265,4 @@
         </div>
       </div>
     </div>
-  </div></footer>
+  </div>
