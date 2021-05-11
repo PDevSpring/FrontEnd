@@ -30,6 +30,7 @@ import {LoansServiceService} from './Services/loans-service.service';
 import {BankServiceService} from './Services/bank-service.service';
 import {ShoppingServiceService} from './Services/shopping-service.service';
 import { AgentconfirmComponent } from './components/agent/agentconfirm/agentconfirm.component';
+import { SimulateComponent } from './components/simulate/simulate.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { AgentconfirmComponent } from './components/agent/agentconfirm/agentconf
     AdminprofilsettComponent,
     AdminforumComponent,
     BanksettingsComponent,
-    AgentconfirmComponent
+    AgentconfirmComponent,
+    SimulateComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,7 @@ export class LoansServiceService {
 
   public Simulate(years: number, salaire: number, idad: number , nameBank: string): any{
     const url = 'http://localhost:3000/App/Loan/Simulate/' + idad + '/' + nameBank + '/' + years + '/' + salaire;
-    return this.http.post(url, null); }
+    return this.http.post<Loans>(url, null); }
 
   public addSimulate(years: number, salaire: number, idad: number, nameBank: string, iduser: number): any{
       const url = 'http://localhost:3000/App/Loan/addloan/' + idad + '/' + iduser + '/' + nameBank + '/' + years + '/' + salaire;

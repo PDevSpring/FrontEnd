@@ -19,7 +19,8 @@ import { LoginComponent } from './components/login/login.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { VisitfurnitureComponent } from './components/visitfurniture/visitfurniture.component';
 import { VisithousesComponent } from './components/visithouses/visithouses.component';
-import {AgentconfirmComponent} from "./components/agent/agentconfirm/agentconfirm.component";
+import {AgentconfirmComponent} from './components/agent/agentconfirm/agentconfirm.component';
+import {SimulateComponent} from './components/simulate/simulate.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'Getstarted/Register', component:GetstartedComponent},
   {path:'Getstarted/Login', component:LoginComponent},
   {path:'Session/Connected!0/Home', component:ClientareaComponent},
+  {path:'Session/Connected!0/Home/Simulate', component:SimulateComponent},
   {path:'Session/Connected!0/Home/Ads', component:AdsComponent},
   {path:'Session/Connected!0/Home/Profil/Messages', component:MessagesComponent},
   {path:'Session/Connected!0/Home/Profil/Froum', component:ForumComponent},
@@ -42,6 +44,7 @@ const routes: Routes = [
   {path:'Session/Connected!1/Home/Profil/AccountSettings', component:AdminprofilsettComponent},
   {path:'Session/Connected!1/Home/BanksSettings', component:BanksettingsComponent},
   {path:'Session/Connected!1/Home/Agent/Confirm', component:AgentconfirmComponent}
+
 ];
 
 @NgModule({
