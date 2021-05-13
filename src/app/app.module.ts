@@ -32,6 +32,12 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { UserserviceService } from './Services/userservice.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
+import {LoansServiceService} from './Services/loans-service.service';
+import {BankServiceService} from './Services/bank-service.service';
+import {ShoppingServiceService} from './Services/shopping-service.service';
+import { AgentconfirmComponent } from './components/agent/agentconfirm/agentconfirm.component';
+import { SimulateComponent } from './components/simulate/simulate.component';
+import { FournituresareaComponent } from './components/fournituresarea/fournituresarea.component';
 
 
 @NgModule({
@@ -57,7 +63,10 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
     AdminforumComponent,
     BanksettingsComponent,
     VerificationComponent,
-    LoadingComponent
+    LoadingComponent,
+    AgentconfirmComponent,
+    SimulateComponent,
+    FournituresareaComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +76,7 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
     Ng2SearchPipeModule,
     Ng2OrderModule
   ],
-  providers: [ResgisterService,LoginService,CookieService,UserserviceService],
+  providers: [ResgisterService,LoginService,CookieService,UserserviceService, LoansServiceService, BankServiceService, ShoppingServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

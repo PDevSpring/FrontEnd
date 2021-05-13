@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import {LoansServiceService} from '../../Services/loans-service.service';
 import {BankServiceService} from '../../Services/bank-service.service';
+import {Bank} from '../../Models/Bank';
+import {Agent} from '../../Models/Agent';
+import {Loans} from '../../Models/Loans';
 import {Observable} from 'rxjs';
-import {NgModel} from '@angular/forms';
-import { Loans } from 'src/app/Models/Loans';
-import { Bank } from 'src/app/Models/Bank';
-import { Agent } from 'src/app/Models/Agent';
-import { LoansServiceService } from 'src/app/Services/loans-service.service';
 
 @Component({
-  selector: 'app-banksettings',
-  templateUrl: './banksettings.component.html',
+  selector: 'app-simulate',
+  templateUrl: './simulate.component.html',
+  styleUrls: ['./simulate.component.css']
 })
-export class BanksettingsComponent implements OnInit {
+export class SimulateComponent implements OnInit {
 
   constructor(private loanservice: LoansServiceService, private bankservice: BankServiceService) {
     this.ScriptElement = document.createElement('script');
@@ -41,9 +41,9 @@ export class BanksettingsComponent implements OnInit {
 
 
   loaanlist: Loans[] = [];
- banklist: Bank[] = [];
+  banklist: Bank[] = [];
   banksell: Bank[] = [];
-   a = '';
+  a = '';
   agentslist: Agent[] = [];
   selectedbank?: Bank;
   selectedloan?: Loans;
@@ -51,11 +51,8 @@ export class BanksettingsComponent implements OnInit {
 
 
 
-
-
-
-
   ngOnInit(): void {
+
     this.bankservice.getAllBanks().subscribe((data: any[]) => {
       console.log(data);
       this.banklist = data; });
@@ -64,10 +61,11 @@ export class BanksettingsComponent implements OnInit {
       data => {
         this.agentslist = data; });
 
-    this.loanservice.getAllSimulations().subscribe((data: any[]) => {
-      console.log(data);
-      this.loaanlist = data; });
+    this.loaanlist = [];
   }
+
+
+
   onSelect(bank: Bank): void {
     this.selectedbank = bank;
   }
@@ -76,60 +74,17 @@ export class BanksettingsComponent implements OnInit {
     return  this.a = bank.namebank;
   }
 
-
-  public AddBank(bank: Bank){
-    return this.bankservice.AddBank(bank).subscribe((res) => {
-    });
-  }
-
-  public AddAg(agent: Agent, bankId: number) {
-    return this.bankservice.Addagent(agent, bankId).subscribe((res) => {
-    });
-  }
-
-
-  public upBank(bank: Bank, bankIdd: number) {
-    return this.bankservice.updateBank(bank, bankIdd);
-    // this.delBank(bankIdd);
-    // this.AddBank(bank);
-
-  }
-
-  public delBank(bankid: number){
-    return this.bankservice.deleteBankByID(bankid);
-  }
-
-  public delAgent(agentid: number){
-    return this.bankservice.deleteAgentByID(agentid);
-  }
-
-  public getbbyid(bankid: number): Observable<any> {
-    return this.bankservice.getBankById(bankid);
-  }
-  public findbname(namebank: string): Observable<any> {
-    return this.bankservice.findbankname(namebank);
-  }
-
-
   onSelectloan(loan: Loans): void {
     this.selectedloan = loan;
   }
 
-  public AddLoan(years: number, salaire: number, idad: number, nameBank: string, iduser: number) {
-    return this.loanservice.addSimulate(years, salaire, idad, nameBank, iduser).subscribe();
-  }
+  public Simulate(years: number, salaire: number, idad: number, nameBank: string) {
 
-  public delLoan(loanid: number){
-    return this.loanservice.deleteSimulationById(loanid);
-  }
-
-  public confirm(loanid: number){
-    return this.loanservice.confirmSimulation(loanid);
-  }
-
-  public unconfirm(loanid: number){
-    return this.loanservice.unconfirmSimulation(loanid);
+     this.loanservice.Simulate(years, salaire, idad, nameBank).subscribe
+     ((data: Loans) => {
+       console.log(data);
+       this.loans = data; });
+     console.log( this.loans);
+     return this.loans;
   }
 }
-
-

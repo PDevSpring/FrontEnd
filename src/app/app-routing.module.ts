@@ -21,17 +21,22 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { VerificationComponent } from './components/verification/verification.component';
 import { VisitfurnitureComponent } from './components/visitfurniture/visitfurniture.component';
 import { VisithousesComponent } from './components/visithouses/visithouses.component';
+import {AgentconfirmComponent} from './components/agent/agentconfirm/agentconfirm.component';
+import {SimulateComponent} from './components/simulate/simulate.component';
+import {FournituresareaComponent} from "./components/fournituresarea/fournituresarea.component";
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
   {path:'About', component:AboutComponent},
   {path:'Contact', component:ContactComponent},
-  {path:'FurnitureModels', component:VisitfurnitureComponent}, 
+  {path:'FurnitureModels', component:VisitfurnitureComponent},
   {path:'HousesModels', component:VisithousesComponent},
   {path:'Getstarted/Register', component:GetstartedComponent},
   {path:'Getstarted/Login', component:LoginComponent},
   {path:'Session/Connected!0/Home', component:ClientareaComponent},
+  {path:'Session/Connected!0/Home/Simulate', component:SimulateComponent},
   {path:'Session/Connected!0/Home/Ads', component:AdsComponent},
+  {path:'Session/Connected!0/Home/Furniture', component:FournituresareaComponent},
   {path:'Session/Connected!0/Home/Profil/Messages', component:MessagesComponent},
   {path:'Session/Connected!0/Home/Profil/Froum', component:ForumComponent},
   {path:'Session/Connected!0/Home/Profil/AccountSettings', component:AccountsettComponent},

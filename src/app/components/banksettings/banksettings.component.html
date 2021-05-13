@@ -1,5 +1,5 @@
  <!-- ======= Property Search Section ======= -->
- <div class="click-closed"></div>
+ <div class="click-closed" xmlns="http://www.w3.org/1999/html"></div>
  <!--/ Form Search Star /-->
  <div class="box-collapse">
    <div class="title-box-d">
@@ -109,6 +109,10 @@
         <li class="nav-item">
           <a class="nav-link active" routerLink="/Session/Connected!1/Home">Home</a>
         </li>
+         <li class="nav-item">
+           <a class="nav-link " routerLink="/Session/Connected!1/Home/Agent/Confirm" >agent</a>
+         </li>
+
 
         <li class="nav-item">
           <a class="nav-link " routerLink="/Session/Connected!1/Home/Ads" >Ads</a>
@@ -140,9 +144,383 @@
 
    </div>
  </nav><!-- End Header/Navbar -->
+<div>
+
+<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
 
- <!-- ======= Footer ======= -->
+
+
+  <br>
+<div class="container-sm bg-light">
+  <h1>Banks</h1>
+  <table ID="table1" >
+
+  <tr>
+    <th>Name</th>
+    <th>adress</th>
+    <th>description</th>
+    <th>marge Interetbank</th>
+    <th>taux</th>
+  </tr>
+
+  <tr>
+
+      <td>
+        <input  class="form-control" [(ngModel)]="banke.namebank" />
+      </td>
+      <td>
+        <input  class="form-control" [(ngModel)]="banke.adressbank" />
+      </td>
+      <td>
+        <input  class="form-control" [(ngModel)]="banke.descbank" />
+      </td>
+      <td>
+        <input  class="form-control" [(ngModel)]="banke.margeInteretbank" />
+      </td>
+      <td>
+        <input  class="form-control" [(ngModel)]="banke.taux" />
+      </td>
+  </tr>
+</table>
+
+  <div>
+  <button (click)="AddBank(banke)" onClick="window.location.reload();" class="btn btn-success">Add</button>
+  </div></div>
+  <br>
+
+  <div class="container-sm bg-light">
+  <h2 class="bi-list-nested"> Bank List</h2>
+    <div class="row">  <button onClick="window.location.reload();" class="btn btn-dark"  >REFRESH</button></div>
+
+    <br>
+<div>
+  <table id="table"  class="table table-bordered table-condensed table-striped">
+    <thead>
+    <tr>
+
+      <th>ID</th>
+      <th>Name</th>
+      <th>Adress</th>
+      <th>Description</th>
+      <th>Marge Interet</th>
+      <th>Taux</th>
+      <th colspan="2">|     OPTION</th>
+
+    </tr>
+      </thead>
+<tbody>
+    <tr *ngFor="let bank of banklist ;" (click)="onSelect(bank) " >
+      <td >{{bank.bankId}}</td>
+      <td>{{bank.namebank}}</td>
+      <td>{{bank.adressbank}}</td>
+      <td contenteditable>{{bank.descbank}}</td>
+      <td>{{bank.margeInteretbank}}</td>
+      <td>{{bank.taux}}</td>
+
+      <td><button (click)="delBank(bank.bankId)" onClick="window.location.reload();" class="btn btn-danger">Delete</button></td>
+
+
+</tbody>
+  </table>
+
+  <div *ngIf="selectedbank">
+
+    <h2>{{selectedbank.namebank | uppercase}} Details</h2>
+    <div><span>id: </span>{{selectedbank.bankId}}</div>
+    <div>
+      <label for="bank-name">Hero name: </label>
+      <input id="bank-name" [(ngModel)]="selectedbank.namebank" placeholder="name">
+      <br>
+      <label for="bank-desc">bank description: </label>
+      <input id="bank-desc" [(ngModel)]="selectedbank.descbank" placeholder="name">
+      <br>
+      <label for="bank-add">bank address: </label>
+      <input id="bank-add" [(ngModel)]="selectedbank.adressbank" placeholder="name">
+      <br>
+      <label for="bank-marge">bank marge: </label>
+      <input id="bank-marge" [(ngModel)]="selectedbank.margeInteretbank" placeholder="name">
+      <br>
+      <label for="bank-taux">bank marge: </label>
+      <input id="bank-taux" [(ngModel)]="selectedbank.taux" placeholder="name">
+
+    </div>
+    <td><button (click)="upBank(selectedbank,selectedbank.bankId)" class="btn btn-warning">Update</button></td>
+  </div>
+
+  <div *ngIf="selectedbank">
+
+  <br>
+    <h2>{{selectedbank.namebank | uppercase}} Add Agent</h2>
+  <table ID="tableaggent" >
+
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>datenaissance</th>
+      <th>Adress </th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Phone</th>
+
+    </tr>
+
+    <tr>
+
+      <td>
+        <input [(ngModel)]="agent.firstname" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.lastname" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.datenaissance" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.adress" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.email" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.password" />
+      </td>
+      <td>
+        <input [(ngModel)]="agent.phone" />
+      </td>
+    </tr>
+  </table>
+    <div>
+  <button (click)="AddAg(agent,selectedbank.bankId)"  onClick="window.location.reload();" class="btn btn-success">Add</button>
+
+  <br>
+
+    </div>
+
+</div>
+  <div class="row"><div class="col-sm"> <h2 class="bi-list-nested"> Agents List</h2></div>
+    <div class="row">  <button onClick="window.location.reload();" class="btn btn-dark"  >REFRESH</button></div>
+  </div>
+    <table id="table2"  class="table table-bordered table-condensed table-striped">
+    <thead>
+    <tr>
+
+      <th>ID</th>
+      <th>firstname</th>
+      <th>lastname</th>
+      <th>datenaissance</th>
+      <th>adress</th>
+      <th>email</th>
+      <th>password</th>
+      <th>phone</th>
+      <th colspan="2">|     OPTION</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let agent of agentslist ;"  >
+      <td >{{agent.id}}</td>
+      <td>{{agent.firstname}}</td>
+      <td>{{agent.lastname}}</td>
+      <td>{{agent.datenaissance}}</td>
+      <td>{{agent.adress}}</td>
+      <td>{{agent.email}}</td>
+      <td>{{agent.password}}</td>
+      <td>{{agent.phone}}</td>
+
+
+      <td><button (click)="delAgent(agent.id)"  onClick="window.location.reload();" class="btn btn-danger">Delete</button></td>
+    </tr></tbody></table></div></div>
+</div>
+
+ <div class="container-sm bg-light">
+ <h1>Loans</h1>
+
+ <br>
+
+
+
+     <div class="container-sm">
+
+       <form >
+         <div class="form-group">
+           <div class="row-cols-3">
+           <div class="col-sm">
+           <label>ad id : </label></div>
+           <div class="col-sm">
+           <input class="form-control" type="number"
+                   #addid/></div>
+         </div></div>
+
+
+         <div class="form-group">
+           <div class="row-cols-3">
+             <div class="col-sm">
+               <label>user id : </label></div>
+             <div class="col-sm">
+               <input class="form-control" type="number"
+                      #usid/></div>
+           </div></div>
+         <!--
+                  <div class="form-group">
+                    <label>Bank name  :</label>
+                    <div *ngFor="let bankloan of banklist" (click)="onSelectbankloan(bankloan)" >
+                      <input type="checkbox" /><br>{{bankloan.namebank}}
+                    </div>
+                  </div>
+
+         <div class="checkbox checkbox-inline col-sm-4" ng-epeat="bankloan.namebank in banklist">
+           <input type="checkbox" name="currency" id="chk-{{bankloan.bankId}}" ng-model="options[$index]" ng-value="currency" ng-change="toggleCurrency($index)">
+           <label for="chk-{{bankloan.bankId}}">{{bankloan.namebank}}</label>
+         </div>
+         <br>
+         <h3>BANK Selected</h3>
+         <div>
+           <span ng-repeat-start="option in currencies | filter: {checked:true}">{{bankloan.bankId}} - {{bankloan.namebank}}</span>
+           <br ng-repeat-end>
+         </div>-->
+         <div class="form-group">
+           <ul class="row" >Select Bank<ul>
+         <div *ngFor="let bank of banklist ;" (click)="onSelectbankloan(bank) " >
+           <div class="row">
+               <div class="col-sm-1">
+               <a>{{bank.namebank}}</a></div>
+             <div class="col"><input  type="checkbox"></div></div>
+         </div></ul></ul></div>
+
+
+
+         <div class="form-group">
+           <div class="row-cols-3">
+             <div class="col-sm">
+               <label>Salary : </label></div>
+             <div class="col-sm">
+               <input class="form-control" type="number"
+                      #sal/></div>
+           </div></div>
+         <div class="form-group">
+           <div class="row-cols-3">
+             <div class="col-sm">
+               <label>Years : </label></div>
+             <div class="col-sm">
+               <input class="form-control" type="number"
+                      #yeaars/></div>
+           </div></div>
+
+         <div class="form-group">
+           <div class="row">
+             <div class="col-2">
+               <button  (click)="AddLoan(yeaars.valueAsNumber,sal.valueAsNumber,addid.valueAsNumber,a,usid.valueAsNumber)"
+                        class="btn btn-success">Add Loan</button>
+             </div>
+           </div></div>
+       </form>
+     </div>
+
+
+
+
+ </div>
+ <div class="container-sm bg-light">
+ <br>
+   <h2 class="bi-list-nested"> Loans list</h2>
+   <div class="row">  <button onClick="window.location.reload();" class="btn btn-dark"  >REFRESH</button></div>
+
+   <br>
+<div class="container-sm">
+
+ <br>
+ <div>
+   <table id="tableloanslist"  class="table table-bordered table-condensed table-striped">
+     <thead>
+     <tr>
+
+       <th>id</th>
+       <th>status</th>
+       <th>prix product</th>
+       <th>started date</th>
+       <th>client salary</th>
+       <th>Interet</th>
+       <th>Interetall</th>
+       <th>MontantRemb</th>
+       <th>Principale</th>
+       <th>Mensuel</th>
+       <th>Mensualite</th>
+       <th>Rembouresement Capacity</th>
+       <th>Taux</th>
+       <th colspan="2">|     OPTION</th>
+
+     </tr>
+     </thead>
+     <tbody>
+     <tr *ngFor="let loans of loaanlist ;" (click)="onSelectloan(loans) " >
+       <td >{{loans.IdLoan}}</td>
+       <td >{{loans.Status}}</td>
+       <td >{{loans.Prixprod}}</td>
+       <td >{{loans.StartedDate}}</td>
+       <td >{{loans.Salaire}}</td>
+       <td >{{loans.Interet}}</td>
+       <td >{{loans.Interetall}}</td>
+       <td >{{loans.MontantRemb}}</td>
+       <td >{{loans.Principale}}</td>
+       <td >{{loans.Mensuel}}</td>
+       <td >{{loans.Mensualite}}</td>
+       <td >{{loans.CapaciteRembouresement}}</td>
+       <td >{{loans.Taux}}</td>
+
+
+       <td><button (click)="delLoan(loans.IdLoan)" class="btn btn-danger "  >Delete</button></td>
+
+
+     </tbody>
+   </table>
+ </div></div>
+ </div>
+ <div class="container-sm bg-light">
+ <div *ngIf="selectedloan">
+
+   <br>
+   <h2>Editing Loan ID: {{selectedloan.IdLoan}}</h2>
+   <table ID="tableagent" >
+
+     <tr>
+       <th>loans Id </th>
+       <th>loans Status </th>
+       <th>Ad Price</th>
+       <th>Confirm</th>
+       <th>Unconfirm </th>
+     </tr>
+
+     <tr>
+       <td>
+         <input [(ngModel)]="selectedloan.IdLoan" />
+       </td>
+       <td>
+         <input [(ngModel)]="selectedloan.Status" />
+       </td>
+       <td>
+         <input [(ngModel)]="selectedloan.Prixprod" />
+       </td>
+
+
+       <td>
+         <button (click)="confirm(selectedloan.IdLoan)"  onClick="window.location.reload();" class="btn btn-success">Confirm</button>
+       </td>
+       <td>
+         <button (click)="unconfirm(selectedloan.IdLoan)"  onClick="window.location.reload();" class="btn btn-success">Unconfirm</button>
+       </td>
+
+     </tr>
+   </table></div></div>
+
+
+
+   <!-- ======= Footer ======= -->
  <section class="section-footer">
   <div class="container">
     <div class="row">
@@ -153,8 +531,8 @@
           </div>
           <div class="w-body-a">
             <p class="w-text-a color-text-a">
-              Our Agency will provide the best Services for you ! 
-              For more Informations : 
+              Our Agency will provide the best Services for you !
+              For more Informations :
             </p>
           </div>
           <div class="w-footer-a">
@@ -266,4 +644,4 @@
         </div>
       </div>
     </div>
-  </div>
+  </div></footer>
