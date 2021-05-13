@@ -49,7 +49,7 @@
     height: 100%;
     left: 0;
     top: 0;
-    background-image: url('../../../assets/Images/rback.jpg');
+    background-image: linear-gradient(to right, rgba(71, 230, 50, 0.678) ,  rgba(71, 230, 50, 0.452));
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 10;
@@ -72,32 +72,56 @@
 
 }  
 
-
-
-input {
-    height: 2.5rem;
-    outline: black;  
-    width: 100%;    
+.regbutton{
+    border-radius: 40px;
+    width: 140px;
+    height: 40px;
+    margin-left: 1600px;
+    background-color: white;
 }
 
-input[type=password], input[type=email], input[type=text] {
+.deletebutton{
+    border-radius: 40px;
+    width: 140px;
+    height: 40px;
+    margin-left: 1600px;
+    background-color: white;
+}
+
+.inputsearch{
+    height: 2.5rem;
+    outline: black;  
+    width: 100%;  
     background:  rgba(136, 136, 136, 0.575);
     border: 2px solid rgb(7, 7, 7);
     margin: 0.5rem auto;
-    padding: 1rem;
+    padding: 1rem;  
 }
 
-input[type=password]:focus, input[type=email]:focus, input[type=text]:focus {
+.inputform{
+    height: 2.5rem;
+    outline: black;  
+    width: 100%;   
+    background:  rgba(136, 136, 136, 0.575);
+    border: 2px solid rgb(7, 7, 7);
+    margin: 0.5rem auto;
+    padding: 1rem; 
+}
+
+.formbtn{
+    height: 2.5rem;
+    outline: black;  
+    width: 100%; 
+    background: rgba(63, 63, 63, 0.397);
+    border: 1px solid black;
+    margin: 1rem auto;   
+}
+
+.inputform:focus{
     background: rgba(255, 255, 255, 0.466);
 }
 
-input[type=submit] {
-    background: rgba(63, 63, 63, 0.397);
-    border: 1px solid black;
-    margin: 1rem auto;
-}
-
-input[type=submit]:hover {
+.formbtn:hover{
     background: rgba(0, 0, 0, 0.87);
     color: white;
     border: 1px solid black;

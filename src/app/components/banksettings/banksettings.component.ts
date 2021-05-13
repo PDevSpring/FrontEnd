@@ -6,6 +6,8 @@ import { Loans } from 'src/app/Models/Loans';
 import { Bank } from 'src/app/Models/Bank';
 import { Agent } from 'src/app/Models/Agent';
 import { LoansServiceService } from 'src/app/Services/loans-service.service';
+import { LoginService } from 'src/app/Services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-banksettings',
@@ -13,7 +15,7 @@ import { LoansServiceService } from 'src/app/Services/loans-service.service';
 })
 export class BanksettingsComponent implements OnInit {
 
-  constructor(private loanservice: LoansServiceService, private bankservice: BankServiceService) {
+  constructor(private router:Router, private service:LoginService,private loanservice: LoansServiceService, private bankservice: BankServiceService) {
     this.ScriptElement = document.createElement('script');
     this.ScriptElement.src = '../../../assets/js/main.js';
     document.body.appendChild(this.ScriptElement);
@@ -129,6 +131,11 @@ export class BanksettingsComponent implements OnInit {
 
   public unconfirm(loanid: number){
     return this.loanservice.unconfirmSimulation(loanid);
+  }
+
+  appLogout(){
+    this.service.logoutUser();
+    this.router.navigate(['/'])
   }
 }
 

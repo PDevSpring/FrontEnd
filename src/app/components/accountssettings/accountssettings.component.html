@@ -147,8 +147,9 @@
      
        <div class="tablecontainer" *ngIf="userslist">
          <nav class="Search">
+           <input class="regbutton" type="submit" value="Add Account" (click)="regadminclick()" /> 
+           <input class="deletebutton" type="submit" value="Delete" (click)="deleteacc()" onClick="window.location.reload()"  /> 
            <input class="inputsearch" type="text" name="userName" [(ngModel)]="userName" placeholder="Search...">
-           <input type="submit" value="search" (click)="regadminclick()" />
          </nav>
          <div class="userstable">
            <div class="tableheader">
@@ -167,7 +168,7 @@
                 <div class="tablecontent">
                   <table >
                     <tbody>
-                      <tr *ngFor="let user of userinfos">
+                      <tr *ngFor="let user of userinfos" (click)="selected(user)"  >
                         <td>{{user.id}}</td>
                         <td>{{user.firstName}}</td>
                         <td>{{user.lastName}}</td>
@@ -184,12 +185,13 @@
 
     <div class="Registerform" *ngIf="addadm">
       <form class="Register">
-          <input type="text" placeholder="FirstName" [(ngModel)]="user.firstName" name="first" required />
-          <input type="text" placeholder="LastName" [(ngModel)]="user.lastName" name="last" required />
-          <input type="email" placeholder="Email" [(ngModel)]="user.email" name="mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required/>
-          <input type="text" placeholder="Username" [(ngModel)]="user.userName" name="usernamee"  required />
-          <input type="password"  placeholder="Password" [(ngModel)]="user.password" name="pass" pattern="[^0-9][A-Za-z]{2,20}" required/>
-          <input type="submit" value="Add Account" (click)="registeradmin()" />
+          <input class="inputform" type="text" placeholder="FirstName" [(ngModel)]="user.firstName" name="first" required />
+          <input class="inputform" type="text" placeholder="LastName" [(ngModel)]="user.lastName" name="last" required />
+          <input class="inputform" type="email" placeholder="Email" [(ngModel)]="user.email" name="mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required/>
+          <input class="inputform" type="text" placeholder="Username" [(ngModel)]="user.userName" name="usernamee"  required />
+          <input class="inputform" type="password"  placeholder="Password" [(ngModel)]="user.password" name="pass" pattern="[^0-9][A-Za-z]{2,20}" required/>
+          <input class="formbtn" type="submit" value="Add Account" (click)="registeradmin()" />
+          <input class="formbtn" type="submit" value="Cancel" (click)="regadminclick()" />
       </form>
     </div>
       

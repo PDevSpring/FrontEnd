@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { User } from 'src/app/Models/user';
+import { UserInfos } from 'src/app/Models/UserInfos';
 import { LoginService } from 'src/app/Services/login.service';
+import { UserserviceService } from 'src/app/Services/userservice.service';
 
 @Component({
   selector: 'app-accountsett',
@@ -9,11 +13,17 @@ import { LoginService } from 'src/app/Services/login.service';
 })
 export class AccountsettComponent implements OnInit {
 
+  user:UserInfos = new UserInfos(0,"","","","","","");
+  id:number = 0 ;  
+  change:boolean = false ; 
+  newpass:any="";
+  currentpass:string=""; 
+
   ScriptElement: HTMLScriptElement;
   ScriptElement1: HTMLScriptElement;
   ScriptElement2: HTMLScriptElement;
   ScriptElement3: HTMLScriptElement;
-  constructor(private service:LoginService,private router : Router){
+  constructor(private service:LoginService,private router : Router, private cookie:CookieService,private serviceu: UserserviceService){
     this.ScriptElement = document.createElement('script'); 
     this.ScriptElement.src = "../../../assets/js/main.js" ;
     document.body.appendChild(this.ScriptElement);
@@ -32,11 +42,45 @@ export class AccountsettComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getuserdata();
   }
 
   appLogout(){
     this.service.logoutUser();
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
+  }
+
+  getuserdata(){
+    this.service.getUserDetails(this.cookie.get('token')).subscribe(data =>{
+      this.user.id=data.id; 
+      this.user.firstName=data.firstName; 
+      this.user.lastName=data.lastName; 
+      this.user.email=data.email; 
+      this.user.userName=data.userName;
+      this.user.password=data.password; 
+      this.user.image=data.image;
+      console.log(this.user);
+    })
+  }
+
+  passchange(){
+    this.change = !this.change ; 
+  }
+  
+
+  AccSett(){
+      if (this.newpass==""){
+        this.user.password=this.user.password ; 
+        this.serviceu.updateClient(this.user).subscribe(res => {
+          console.log(res);   })
+      }else{
+        this.user.password=this.newpass;
+        this.serviceu.updateClientpass(this.user).subscribe(res => {
+          console.log(res);   })
+      }    
+      
+    
+    
   }
 
 

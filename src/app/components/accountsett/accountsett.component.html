@@ -144,12 +144,13 @@
         </div>
         <div class="Registerform">
           <form class="Register">
-              <input type="text" placeholder="FirstName" required />
-              <input type="text" placeholder="LastName" required />
-              <input type="email" placeholder="Email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required/>
-              <input type="text" placeholder="Username"  required />
-              <input type="password"  placeholder="Password" pattern="[^0-9][A-Za-z]{2,20}" required/>
-              <input type="submit" value="Save"  />
+              <input type="text" placeholder={{user.firstName}} [(ngModel)]="user.firstName" name="first" required />
+              <input type="text" placeholder={{user.lastName}} [(ngModel)]="user.lastName" name="last" required />
+              <input type="email" placeholder={{user.email}} [(ngModel)]="user.email" name="mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required/>
+              <input type="text" placeholder={{user.userName}} [(ngModel)]="user.userName" name="usernamee"  required />
+              <input *ngIf="change" type="password"  placeholder="New Password"  [(ngModel)]="newpass" name="pass" pattern="[^0-9][A-Za-z]{2,20}" required/>
+              <input type="submit" value="Save" (click)="AccSett()"  />
+              <input type="submit" value="Change Password" (click)="passchange()" />
           </form>
         </div>
       </div>  

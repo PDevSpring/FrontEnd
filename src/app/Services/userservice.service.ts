@@ -45,20 +45,36 @@ export class UserserviceService {
     return this.http.get<any>("http://localhost:3000/app/adminArea/search",header)
   }
 
-  public updateUser(id:number , user:User){
+  public updateUser(user:User){
     const header = {
       headers: new HttpHeaders({
         'Authorizations': 'Bearer '+this.cookie.get('token')
       })}
-    return this.http.put<any>("http://localhost:3000/app/adminArea/change/"+id,user,header)
+    return this.http.put<any>("http://localhost:3000/app/adminArea/change",user,header)
   }
 
-  public updateClient(id:number , user:User){
+  public updateUserpass(user:User){
     const header = {
       headers: new HttpHeaders({
         'Authorizations': 'Bearer '+this.cookie.get('token')
       })}
-    return this.http.put<any>("http://localhost:3000/app/profil/change/"+id,user,header)
+    return this.http.put<any>("http://localhost:3000/app/adminArea/changePass",user,header)
+  }
+
+  public updateClient(user:User){
+    const header = {
+      headers: new HttpHeaders({
+        'Authorizations': 'Bearer '+this.cookie.get('token')
+      })}
+    return this.http.put<any>("http://localhost:3000/app/profil/change",user,header)
+  }
+
+  public updateClientpass(user:User){
+    const header = {
+      headers: new HttpHeaders({
+        'Authorizations': 'Bearer '+this.cookie.get('token')
+      })}
+    return this.http.put<any>("http://localhost:3000/app/profil/changePass",user,header)
   }
 
   public clientSearch(username : string){

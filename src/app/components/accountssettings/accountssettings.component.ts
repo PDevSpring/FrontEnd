@@ -16,7 +16,9 @@ export class AccountssettingsComponent implements OnInit {
   userName:any;
   user:User = new User("","","","",""); 
   userslist:boolean=true; 
+  userselected:UserInfos = new UserInfos(0,"","","","","","");
   addadm:boolean=false; 
+  id:number=0; 
 
   ScriptElement: HTMLScriptElement;
   ScriptElement1: HTMLScriptElement;
@@ -76,6 +78,16 @@ export class AccountssettingsComponent implements OnInit {
   appLogout(){
     this.service.logoutUser();
     this.router.navigate(['/'])
+  }
+
+  selected(user:UserInfos):void{
+    this.userselected=user;
+  }
+
+  deleteacc(){
+    this.serviceu.deleteUser(this.userselected.id).subscribe(res => {
+      console.log(res);
+    });
   }
 
 }

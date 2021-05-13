@@ -20,7 +20,7 @@ export class LoginService {
   }
 
   public logoutUser(){
-    this.cookie.delete('token')
+    this.cookie.delete('token');
   }
 
   
