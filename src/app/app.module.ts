@@ -30,6 +30,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { VerificationComponent } from './components/verification/verification.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { UserserviceService } from './Services/userservice.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import { UserserviceService } from './Services/userservice.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule
   ],
   providers: [ResgisterService,LoginService,CookieService,UserserviceService],
   bootstrap: [AppComponent]

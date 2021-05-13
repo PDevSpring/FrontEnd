@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { User } from '../Models/user';
+import { UserInfos } from '../Models/UserInfos';
 
 @Injectable({
   providedIn: 'root'
@@ -41,7 +42,7 @@ export class UserserviceService {
       headers: new HttpHeaders({
         'Authorizations': 'Bearer '+this.cookie.get('token')
       })}
-    return this.http.delete<any>("http://localhost:3000/app/adminArea/search",header)
+    return this.http.get<any>("http://localhost:3000/app/adminArea/search",header)
   }
 
   public updateUser(id:number , user:User){
@@ -65,6 +66,6 @@ export class UserserviceService {
       headers: new HttpHeaders({
         'Authorizations': 'Bearer '+this.cookie.get('token')
       })}
-    return this.http.delete<any>("http://localhost:3000/app/profil/search",header)
+    return this.http.get<any>("http://localhost:3000/app/profil/search",header)
   }
 }

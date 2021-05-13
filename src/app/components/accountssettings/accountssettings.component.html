@@ -144,9 +144,57 @@
  <div class="intro intro-carousel swiper-container position-relative">
 
     <div class="swiper-wrapper">
- <input type="submit" value="Register" (click)="getallusers()" />
-
+     
+       <div class="tablecontainer" *ngIf="userslist">
+         <nav class="Search">
+           <input class="inputsearch" type="text" name="userName" [(ngModel)]="userName" placeholder="Search...">
+           <input type="submit" value="search" (click)="regadminclick()" />
+         </nav>
+         <div class="userstable">
+           <div class="tableheader">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>UserName</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+                <div class="tablecontent">
+                  <table >
+                    <tbody>
+                      <tr *ngFor="let user of userinfos">
+                        <td>{{user.id}}</td>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.userName}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </div>
+              
+           
+         </div>
     </div>
+
+    <div class="Registerform" *ngIf="addadm">
+      <form class="Register">
+          <input type="text" placeholder="FirstName" [(ngModel)]="user.firstName" name="first" required />
+          <input type="text" placeholder="LastName" [(ngModel)]="user.lastName" name="last" required />
+          <input type="email" placeholder="Email" [(ngModel)]="user.email" name="mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required/>
+          <input type="text" placeholder="Username" [(ngModel)]="user.userName" name="usernamee"  required />
+          <input type="password"  placeholder="Password" [(ngModel)]="user.password" name="pass" pattern="[^0-9][A-Za-z]{2,20}" required/>
+          <input type="submit" value="Add Account" (click)="registeradmin()" />
+      </form>
+    </div>
+      
+
+  </div>
 </div><!-- End Intro Section -->
 
  <!-- ======= Footer ======= -->

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/Models/user';
+import { UserInfos } from 'src/app/Models/UserInfos';
 import { LoginService } from 'src/app/Services/login.service';
 import { UserserviceService } from 'src/app/Services/userservice.service';
 
@@ -9,6 +11,12 @@ import { UserserviceService } from 'src/app/Services/userservice.service';
   styleUrls: ['./accountssettings.component.css']
 })
 export class AccountssettingsComponent implements OnInit {
+
+  userinfos:UserInfos[] = [] ; 
+  userName:any;
+  user:User = new User("","","","",""); 
+  userslist:boolean=true; 
+  addadm:boolean=false; 
 
   ScriptElement: HTMLScriptElement;
   ScriptElement1: HTMLScriptElement;
@@ -33,13 +41,36 @@ export class AccountssettingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   this.getallusers();
   }
 
 
   getallusers(){
-    this.serviceu.getAllUsers().subscribe(res => 
-      console.log(res)
-      )
+    this.serviceu.getAllUsers().subscribe(res => {
+      this.userinfos=res; 
+    })
+  }
+
+  filter(){
+    if(this.userName == ""){
+    this.ngOnInit();
+    }else{
+      this.userinfos = this.userinfos.filter(res => {
+        console.log(this.userinfos);
+        return res.userName.toLocaleLowerCase().match(this.userName.toLocaleLowerCase());
+      });
+    }
+  }
+
+  regadminclick(){
+    this.userslist = !this.userslist;
+    this.addadm = !this.addadm;
+  }
+
+  registeradmin(){
+    this.serviceu.addAdmin(this.user).subscribe(res =>{
+      console.log(res); 
+    })
   }
   
   appLogout(){
