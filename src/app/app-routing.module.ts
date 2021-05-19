@@ -28,6 +28,7 @@ import {ShoopingcardComponent} from './components/shoopingcard/shoopingcard.comp
 import {OrderComponent} from './components/order/order.component';
 import {ClientfournitureownerComponent} from './components/clientfournitureowner/clientfournitureowner.component';
 
+
 const routes: Routes = [
 <<<<<<< HEAD
   {path: '', component: HomeComponent},
@@ -79,9 +80,12 @@ const routes: Routes = [
   {path:'Session/Connected!1/Home/Profil/AccountsSettings', component:AccountssettingsComponent},
   {path:'Session/Connected!1/Home/Profil/AccountSettings', component:AdminprofilsettComponent},
   {path:'Session/Connected!1/Home/BanksSettings', component:BanksettingsComponent},
+<<<<<<< Updated upstream
   {path:'Getstarted/Register/AccountVerified', component:VerificationComponent},
   {path:'LoadingWait',component:LoadingComponent}
 >>>>>>> 83ecc39c9057b26e496e0f176cf9d5a1141777c6
+=======
+>>>>>>> Stashed changes
 ];
 
 @NgModule({

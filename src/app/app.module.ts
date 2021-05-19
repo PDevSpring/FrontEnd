@@ -26,6 +26,7 @@ import { ResgisterService } from './Services/resgister.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BanksettingsComponent } from './components/banksettings/banksettings.component';
+<<<<<<< Updated upstream
 import { CookieService } from 'ngx-cookie-service';
 import { VerificationComponent } from './components/verification/verification.component';
 import { LoadingComponent } from './components/loading/loading.component';
@@ -41,6 +42,18 @@ import { FournituresareaComponent } from './components/fournituresarea/fournitur
 import { ShoopingcardComponent } from './components/shoopingcard/shoopingcard.component';
 import { OrderComponent } from './components/order/order.component';
 import { ClientfournitureownerComponent } from './components/clientfournitureowner/clientfournitureowner.component';
+=======
+import {LoansServiceService} from "./Services/loans-service.service";
+import {BankServiceService} from "./Services/bank-service.service";
+import {ShoppingServiceService} from "./Services/shopping-service.service";
+import {AdsService} from "./Services/ads.service";
+import {FilterAdsService} from "./Services/filter-ads.service";
+import {AppointmentService} from "./Services/appointment.service";
+
+
+
+
+>>>>>>> Stashed changes
 
 
 @NgModule({
@@ -65,6 +78,7 @@ import { ClientfournitureownerComponent } from './components/clientfournitureown
     AdminprofilsettComponent,
     AdminforumComponent,
     BanksettingsComponent,
+<<<<<<< Updated upstream
     VerificationComponent,
     LoadingComponent,
     AgentconfirmComponent,
@@ -73,6 +87,9 @@ import { ClientfournitureownerComponent } from './components/clientfournitureown
     ShoopingcardComponent,
     OrderComponent,
     ClientfournitureownerComponent
+=======
+
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
@@ -82,7 +99,12 @@ import { ClientfournitureownerComponent } from './components/clientfournitureown
     Ng2SearchPipeModule,
     Ng2OrderModule
   ],
+<<<<<<< Updated upstream
   providers: [ResgisterService,LoginService,CookieService,UserserviceService, LoansServiceService, BankServiceService, ShoppingServiceService],
+=======
+  providers: [ResgisterService, LoginService, LoansServiceService, BankServiceService, ShoppingServiceService, AdsService, FilterAdsService,
+  AppointmentService],
+>>>>>>> Stashed changes
   bootstrap: [AppComponent]
 })
 export class AppModule { }
