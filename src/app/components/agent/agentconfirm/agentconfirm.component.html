@@ -126,40 +126,45 @@
 <br>
 <br><br>
 <br>
+<div class="container-sm align-middle">
 <form #f="ngForm">
-<div class="container-fluid">
-  <div class="form-group">
-    <div class="row">
-      <div class="col-auto">
-  <label>   Bank Name    </label></div>
-      <div class="col-auto">
-        <input name="name" type="text" class="form-control" ngModel required #name=ngModel #bankname></div>
-      </div>
-        <div class="alert alert-danger" *ngIf="name.invalid && name.touched">
-         the name is required here! </div>
-    </div>
+  <h2>Identify</h2>
 
- <div class="row">
-    <div class="col-auto">
-      <label>   Your Password    </label></div>
-    <div class="col-auto">
-      <input name="name" type="password" class="form-control" ngModel required #password=ngModel #pass></div>
-    </div>
+  <table>
+    <tr>
+      <label>   Bank Name    </label>
+    </tr>
+    <tr>
+      <div class="form-group">
+      <input name="name"  class="form-control" ngModel required #name=ngModel #bankname>
+      <div class="alert alert-danger" *ngIf="name.invalid && name.touched">
+        the name is required here! </div></div>
+    </tr>
+    <tr>
+      <label>   Your Password    </label>
+    </tr>
+    <tr>
+      <div class="form-group">
+      <input name="name" type="password" class="form-control" ngModel required #password=ngModel #pass>
+      <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+        the password is required here! </div></div>
+  </tr>
 
-  <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
-    the password is required here! </div>
+    <tr>
+      <br>
+      <button [disabled]="f.invalid"(click)="get(bankname.value,pass.value)" class="btn btn-success">identify</button>
 
-  <button [disabled]="f.invalid"(click)="get(bankname.value,pass.value)" class="btn btn-toolbar">identify</button>
-
-</div>
+    </tr>
+  </table>
 </form>
-
-
+</div>
+<br>
+<div class="container-sm bg-light">
 <div *ngIf=Validate>
-  <table id="table2"  class="table table-bordered table-condensed table-striped">
+  <h2>Agent</h2>
+  <table id="table2"  class="table  table-bordered table-condensed table-striped">
     <thead>
     <tr>
-
       <th>ID</th>
       <th>firstname</th>
       <th>lastname</th>
@@ -172,7 +177,7 @@
     </thead>
     <tbody>
 
-
+<tr>
       <td>{{agentt.id}}</td>
       <td>{{agentt.firstname}}</td>
       <td>{{agentt.lastname}}</td>
@@ -180,17 +185,17 @@
       <td>{{agentt.adress}}</td>
       <td>{{agentt.email}}</td>
       <td>{{agentt.phone}}</td>
-
-
-
+</tr>
 
 
 
     </tbody></table>
 
-
-  <div>
-    <table id="tableloanslist"  class="table table-bordered table-condensed table-striped">
+<br>
+  <div class="container-sm bg-light">
+    <h2>Your Bank Loan list</h2>
+    <div style="overflow-x:auto;">
+    <table id="tableloanslist"   class="table  table-responsive table-bordered table-condensed table-striped">
       <thead>
       <tr>
 
@@ -207,8 +212,6 @@
         <th>Mensualite</th>
         <th>Rembouresement Capacity</th>
         <th>Taux</th>
-        <th colspan="2">|     OPTION</th>
-
       </tr>
       </thead>
       <tbody>
@@ -232,53 +235,45 @@
 
 
       </tbody>
-    </table>
+    </table></div>
   </div></div>
 
-<div class="container-sm bg-light">
   <div *ngIf="selectedloan">
-
+    <div class="container-sm bg-light">
     <br>
     <h2>Editing Loan ID: {{selectedloan.IdLoan}}</h2>
-    <table ID="tableagent" >
-
-      <tr>
+    <table ID="tableagent" class="table-sm">
+      <thead>
         <th>loans Id </th>
         <th>loans Status </th>
         <th>Ad Price</th>
         <th>Confirm</th>
         <th>Unconfirm </th>
-      </tr>
 
-      <tr>
+      </thead>
+      <tbody>
         <td>
-          <input [(ngModel)]="selectedloan.IdLoan" />
+          <input type="text"  [(ngModel)]="selectedloan.IdLoan" />
         </td>
         <td>
-          <input [(ngModel)]="selectedloan.Status" />
+          <input  type="text" [(ngModel)]="selectedloan.Status" />
         </td>
         <td>
-          <input [(ngModel)]="selectedloan.Prixprod" />
-        </td>
-
-
-        <td>
-          <button (click)="confirm(selectedloan.IdLoan)" class="btn btn-success">Confirm</button>
+          <input type="text" [(ngModel)]="selectedloan.Prixprod" />
         </td>
         <td>
-          <button (click)="unconfirm(selectedloan.IdLoan)"  onClick="window.location.reload();" class="btn btn-success">Unconfirm</button>
+          <button  (click)="confirm(selectedloan.IdLoan,bankname.value)" class="btn btn-success">Confirm</button>
+        </td>
+        <td>
+          <button (click)="unconfirm(selectedloan.IdLoan,bankname.value)"  class="btn btn-success">Unconfirm</button>
         </td>
 
-      </tr>
+      </tbody>
     </table></div></div>
-
-
-
-
-<div>
-
-
 </div>
+
+
+
 
 <!-- ======= Footer ======= -->
 <section class="section-footer">

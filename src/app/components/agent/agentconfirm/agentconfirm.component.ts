@@ -68,10 +68,14 @@ export class AgentconfirmComponent implements OnInit {
     this.getsimulationbynamebank(nameBank);
 
     this.checkpassword(this.getagent(nameBank), pass);
+    if (this.Validate === true){
+      this.agentt  = this.getagent(nameBank);
+    }
   }
   checkpassword(agent: Agent, pass: string): boolean {
     if (agent.password === pass) {
       this.Validate = true;
+      this.agentt = agent;
       return this.Validate;
     } else {
       this.Validate = false;
@@ -91,12 +95,14 @@ export class AgentconfirmComponent implements OnInit {
       this.loaanlist = data; });
   }
 
-  public confirm(loanid: number) {
-    return this.loanservice.confirmSimulation(loanid);
+  public confirm(loanid: number, Bankname: string) {
+    this.loanservice.confirmSimulation(loanid);
+   return this.getsimulationbynamebank(Bankname);
   }
 
-  public unconfirm(loanid: number) {
-    return this.loanservice.unconfirmSimulation(loanid);
+  public unconfirm(loanid: number, Bankname: string) {
+    this.loanservice.unconfirmSimulation(loanid);
+    return this.getsimulationbynamebank(Bankname);
   }
   onSelectloan(loan: Loans): void {
     this.selectedloan = loan;

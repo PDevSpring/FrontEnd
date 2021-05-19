@@ -1,0 +1,48 @@
+
+
+.con {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee
+}
+
+.bou {
+  height: 50px;
+  width: 140px;
+  cursor: pointer;
+  border: none;
+  border: 2px solid #4ad24c;
+  color:  #4ad24c;
+  background: none;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s;
+  font-size: 17px
+}
+
+
+
+
+.bou:hover {
+  color: #fff;
+  z-index: 999
+}
+
+.bou::before {
+  content: "";
+  position: absolute;
+  height: 0%;
+  width: 100%;
+  background-color: #4ad24c;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.5s
+}
+
+.bou:hover::before {
+  height: 100%
+}

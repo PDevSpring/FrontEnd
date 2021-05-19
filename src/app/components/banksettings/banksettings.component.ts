@@ -80,28 +80,37 @@ export class BanksettingsComponent implements OnInit {
 
   public AddBank(bank: Bank){
     return this.bankservice.AddBank(bank).subscribe((res) => {
+      this.ngOnInit();
     });
+
   }
 
   public AddAg(agent: Agent, bankId: number) {
     return this.bankservice.Addagent(agent, bankId).subscribe((res) => {
+      this.ngOnInit();
     });
   }
 
 
   public upBank(bank: Bank, bankIdd: number) {
-    return this.bankservice.updateBank(bank, bankIdd);
+       this.bankservice.updateBank(bank, bankIdd);
+       this.ngOnInit();
+
     // this.delBank(bankIdd);
     // this.AddBank(bank);
 
   }
 
   public delBank(bankid: number){
-    return this.bankservice.deleteBankByID(bankid);
+   this.bankservice.deleteBankByID(bankid);
+    this.ngOnInit();
+
   }
 
   public delAgent(agentid: number){
-    return this.bankservice.deleteAgentByID(agentid);
+    this.bankservice.deleteAgentByID(agentid);
+    this.ngOnInit();
+
   }
 
   public getbbyid(bankid: number): Observable<any> {
@@ -117,19 +126,26 @@ export class BanksettingsComponent implements OnInit {
   }
 
   public AddLoan(years: number, salaire: number, idad: number, nameBank: string, iduser: number) {
-    return this.loanservice.addSimulate(years, salaire, idad, nameBank, iduser).subscribe();
+    this.loanservice.addSimulate(years, salaire, idad, nameBank, iduser).subscribe();
+    this.ngOnInit();
   }
 
   public delLoan(loanid: number){
-    return this.loanservice.deleteSimulationById(loanid);
+    this.loanservice.deleteSimulationById(loanid);
+    this.ngOnInit();
+
   }
 
   public confirm(loanid: number){
-    return this.loanservice.confirmSimulation(loanid);
+    this.loanservice.confirmSimulation(loanid);
+    this.ngOnInit();
+
   }
 
   public unconfirm(loanid: number){
-    return this.loanservice.unconfirmSimulation(loanid);
+    this.loanservice.unconfirmSimulation(loanid);
+    this.ngOnInit();
+
   }
 }
 

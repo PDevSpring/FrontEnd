@@ -58,7 +58,7 @@ export class BankServiceService {
 
   public deleteBankByID(bankId: number){
     console.log(bankId);
-    const url = 'http://localhost:3000/App/Bank/deleteBank/'+bankId;
+    const url = 'http://localhost:3000/App/Bank/deleteBank/' + bankId;
     console.log(url);
     return this.http.delete(url).subscribe(data => {
       console.log(data);

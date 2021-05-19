@@ -32,6 +32,9 @@ import {ShoppingServiceService} from './Services/shopping-service.service';
 import { AgentconfirmComponent } from './components/agent/agentconfirm/agentconfirm.component';
 import { SimulateComponent } from './components/simulate/simulate.component';
 import { FournituresareaComponent } from './components/fournituresarea/fournituresarea.component';
+import { ShoopingcardComponent } from './components/shoopingcard/shoopingcard.component';
+import { OrderComponent } from './components/order/order.component';
+import { ClientfournitureownerComponent } from './components/clientfournitureowner/clientfournitureowner.component';
 
 
 @NgModule({
@@ -58,7 +61,10 @@ import { FournituresareaComponent } from './components/fournituresarea/fournitur
     BanksettingsComponent,
     AgentconfirmComponent,
     SimulateComponent,
-    FournituresareaComponent
+    FournituresareaComponent,
+    ShoopingcardComponent,
+    OrderComponent,
+    ClientfournitureownerComponent
   ],
   imports: [
     BrowserModule,

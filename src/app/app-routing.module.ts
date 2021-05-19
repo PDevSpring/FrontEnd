@@ -21,31 +21,38 @@ import { VisitfurnitureComponent } from './components/visitfurniture/visitfurnit
 import { VisithousesComponent } from './components/visithouses/visithouses.component';
 import {AgentconfirmComponent} from './components/agent/agentconfirm/agentconfirm.component';
 import {SimulateComponent} from './components/simulate/simulate.component';
-import {FournituresareaComponent} from "./components/fournituresarea/fournituresarea.component";
+import {FournituresareaComponent} from './components/fournituresarea/fournituresarea.component';
+import {ShoopingcardComponent} from './components/shoopingcard/shoopingcard.component';
+import {OrderComponent} from './components/order/order.component';
+import {ClientfournitureownerComponent} from './components/clientfournitureowner/clientfournitureowner.component';
 
 const routes: Routes = [
-  {path:'', component:HomeComponent},
-  {path:'About', component:AboutComponent},
-  {path:'Contact', component:ContactComponent},
-  {path:'FurnitureModels', component:VisitfurnitureComponent},
-  {path:'HousesModels', component:VisithousesComponent},
-  {path:'Getstarted/Register', component:GetstartedComponent},
-  {path:'Getstarted/Login', component:LoginComponent},
-  {path:'Session/Connected!0/Home', component:ClientareaComponent},
-  {path:'Session/Connected!0/Home/Simulate', component:SimulateComponent},
-  {path:'Session/Connected!0/Home/Ads', component:AdsComponent},
-  {path:'Session/Connected!0/Home/Furniture', component:FournituresareaComponent},
-  {path:'Session/Connected!0/Home/Profil/Messages', component:MessagesComponent},
-  {path:'Session/Connected!0/Home/Profil/Froum', component:ForumComponent},
-  {path:'Session/Connected!0/Home/Profil/AccountSettings', component:AccountsettComponent},
-  {path:'Session/Connected!1/Home', component:AdminareaComponent},
-  {path:'Session/Connected!1/Home/Ads', component:AdminareaComponent},
-  {path:'Session/Connected!1/Home/Profil/Messages', component:AdminmessagesComponent},
-  {path:'Session/Connected!1/Home/Profil/Froum', component:AdminforumComponent},
-  {path:'Session/Connected!1/Home/Profil/AccountsSettings', component:AccountssettingsComponent},
-  {path:'Session/Connected!1/Home/Profil/AccountSettings', component:AdminprofilsettComponent},
-  {path:'Session/Connected!1/Home/BanksSettings', component:BanksettingsComponent},
-  {path:'Session/Connected!1/Home/Agent/Confirm', component:AgentconfirmComponent}
+  {path: '', component: HomeComponent},
+  {path: 'About', component: AboutComponent},
+  {path: 'Contact', component: ContactComponent},
+  {path: 'FurnitureModels', component: VisitfurnitureComponent},
+  {path: 'HousesModels', component: VisithousesComponent},
+  {path: 'Getstarted/Register', component: GetstartedComponent},
+  {path: 'Getstarted/Login', component: LoginComponent},
+  {path: 'Session/Connected!0/Home', component: ClientareaComponent},
+  {path: 'Session/Connected!0/Home/Simulate', component: SimulateComponent},
+  {path: 'Session/Connected!0/Home/Ads', component: AdsComponent},
+  {path: 'Session/Connected!0/Home/Shoppingcard', component: ShoopingcardComponent},
+  {path: 'Session/Connected!0/Home/Furniture', component: FournituresareaComponent},
+  {path: 'Session/Connected!0/Home/Profil/Messages', component: MessagesComponent},
+  {path: 'Session/Connected!0/Home/Profil/Froum', component: ForumComponent},
+  {path: 'Session/Connected!0/Home/Profil/AccountSettings', component: AccountsettComponent},
+  {path: 'Session/Connected!1/Home', component: AdminareaComponent},
+  {path: 'Session/Connected!1/Home/Orders', component: OrderComponent},
+  {path: 'Session/Connected!1/Home/Myorders', component: ClientfournitureownerComponent},
+
+  {path: 'Session/Connected!1/Home/Ads', component: AdminareaComponent},
+  {path: 'Session/Connected!1/Home/Profil/Messages', component: AdminmessagesComponent},
+  {path: 'Session/Connected!1/Home/Profil/Froum', component: AdminforumComponent},
+  {path: 'Session/Connected!1/Home/Profil/AccountsSettings', component: AccountssettingsComponent},
+  {path: 'Session/Connected!1/Home/Profil/AccountSettings', component: AdminprofilsettComponent},
+  {path: 'Session/Connected!1/Home/BanksSettings', component: BanksettingsComponent},
+  {path: 'Session/Connected!1/Home/Agent/Confirm', component: AgentconfirmComponent}
 
 ];
 

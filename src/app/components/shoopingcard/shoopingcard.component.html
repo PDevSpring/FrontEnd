@@ -119,7 +119,7 @@
           <a class="nav-link " routerLink="/Session/Connected!0/Home/Ads" >Ads</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link  active" routerLink="/Session/Connected!0/Home/Furniture" >Fournitures</a>
+          <a class="nav-link " routerLink="/Session/Connected!0/Home/Furniture" >Fournitures</a>
         </li>
         <li class="nav-item">
           <a class="nav-link " routerLink="/Session/Connected!0/Home/Simulate">Simulation</a>
@@ -127,8 +127,6 @@
         <li class="nav-item">
           <a class="nav-link " routerLink="/Session/Connected!1/Home/Orders">Orders</a>
         </li>
-
-
 
 
         <li class="nav-item dropdown">
@@ -167,6 +165,7 @@
 <br>
 
 
+
 <div class="container-sm bg-light">
 
   <!--<small>create user card by id *</small><br>
@@ -175,135 +174,130 @@
 -->
   <small>connected userid to get his card*{{carduser.cartId}}</small><br>
   <input  class="form-control" type="number" #userid><br>
-  <button class="bou " (click)="GetCCartbyuser(userid.valueAsNumber)" >get cart</button><br><br>
+  <button class="bou " (click)="Getbyuser(userid.valueAsNumber)" >get cart</button><br><br>
 </div>
 
-<div *ngIf="isShowDivaddbutton" class="container-sm align-middle">
-  <small>Add your product* </small><br>
-  <button class="bou "  (click)="showDiv()">Add</button></div>
-<div *ngIf="isShowDivadd">
 
 
-  <!--
-  <div class="container row">
-    <div class="col-md-12">
 
-      <h1>Upload Image</h1>
-    </div>
-  </div>
-  <div class="container row">
-    <div class="col-md-6">
-      <input type="file" (change)="onFileChanged($event)">
-    </div>
-    <div class="col-md-6">
-      <input type="button" (click)="Upload(f,userid)" value="upload">
-    </div>
-  </div>
-  <hr />
-  <div class="container row">
-    <div class="col-md-12">
-      <div *ngIf=message>{{message}}</div>
-    </div>
-  </div>
-  <div class="container row">
-    <div class="col-md-6">
-      <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
-             name="name" />
-    </div>
-    <div class="col-md-6">
-      <input type="button" (click)="getImage(addfourniture.FournitureId)" value="Get Image">
-    </div>
-  </div>
-   <div class="container row">
-    <div class="col-md-12">
-      <div *ngIf=retrievedImage>
-        <img [src]="retrievedImage">
-      </div>
-    </div>
-  </div>
--->
-<div class="col-sm">
-  <br>
-  <div class="container-sm bg-light">
-    <h1>Add Fourniture</h1>
-    <table ID="table1" >
-
-      <tr>
-
-        <th>Name<small class="font-monospace"></small></th>
-        <th>Quantity</th>
-        <th>Price<small class="font-monospace"> (TND) </small></th>
-        <th>Description<small class="font-monospace"> </small></th>
-        <th>Bank Card <small class="font-monospace"> (16 number) </small></th>
-        <th>Upload</th>
-      </tr>
-
-      <tr>
-        <td>
-          <input type="text" class="form-control" [(ngModel)]="addfourniture.Name" />
-        </td>
-        <td>
-          <input type="number" class="form-control" [(ngModel)]="addfourniture.quantity" />
-        </td>
-        <td>
-          <input type="number" class="form-control" [(ngModel)]="addfourniture.Price" />
-        </td>
-        <td>
-          <input  class="form-control" [(ngModel)]="addfourniture.Description" />
-        </td>
-        <td>
-          <input type="number" class="form-control" [(ngModel)]="addfourniture.usercard" />
-        </td>
-        <td>
-              <input type="file" (change)="onFileChanged($event)">
-
-        </td>
-      </tr>
-    </table>
+<div class="cart_section">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-10 offset-lg-1">
+        <div class="cart_container">
+          <div class="cart_title">Shopping Cart<small> ({{cardFourlist.length}} item in your cart) </small></div>
+          <div class="cart_items">
+            <ul class="cart_list">
+              <li *ngFor="let fourniture of cardFourlist ;  let key = index" class="cart_item clearfix">
+                <div class="cart_item_image">   <img src="{{imgsrc[key]}}"></div>
+                <div class="cart_item_info d-flex flex-md-row flex-column justify-content-between">
+                  <div class="cart_item_name cart_info_col">
+                    <div class="cart_item_title">Name</div>
+                    <div class="cart_item_text">{{fourniture.Description}}</div>
+                  </div>
+                  <div class="cart_item_name cart_info_col">
+                    <div class="cart_item_title">Bankcard</div>
+                    <div class="cart_item_text">{{fourniture.usercard}}</div>
+                  </div>
+                  <div class="cart_item_price cart_info_col">
+                    <div class="cart_item_title">Quantity</div>
+                    <div class="cart_item_text">{{fourniture.quantity}}</div>
+                  </div>
+                  <div class="cart_item_price cart_info_col">
+                    <div class="cart_item_title">Price</div>
+                    <div class="cart_item_text">{{fourniture.Price}}<small>TND</small></div>
+                  </div>
+                        <button class="btn-danger btn" (click)="DeleteFourfC(fourniture.FournitureId,carduser.cartId)" onClick="window.location.reload();">Delete</button>
 
 
-    <div>
-      <div class="col-md-6">
-        <input type="button" (click)="Upload(addfourniture,userid.valueAsNumber)" value="upload">
-      </div>
-    <!--  <button (click)="Addfourniture(addfourniture,userid.valueAsNumber)"  class="btn btn-success">Add</button>-->
-    </div></div></div>
-</div>
-
-<div *ngFor="let fourniture of Fourlist ;  let key = index" (click)="onSelect(fourniture)" >
-  <div *ngIf=fourniture.type>
-    <div class="d-flex justify-content-center container mt-5">
-      <div class="card p-3 bg-white"><i class="fa fa-apple"></i>
-        <div class="about-product text-center mt-2"><!--<img src="https://i.imgur.com/3VTaSeb.png" width="300">  [src]="getImage(fourniture.FournitureId)"-->
-          <div>
-             <h4>{{fourniture.Name}}</h4>
-             <h6 class="mt-0 text-black-50"> Fourniture num : {{fourniture.FournitureId}}</h6>
-            <div class="d-flex justify-content-between p-price">
-              <a class="fw-bolder"></a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="order_total">
+            <div class="order_total_content text-md-right">
+              <div class="order_total_title">Order Total:</div>
+              <div class="order_total_amount">{{carduser.totalPrice}}<small>TND</small></div>
             </div>
-          <div class="container row">
-           <div class="col-md-12">
-              <img src="{{imgsrc[key]}}" width="250" height="">
+          </div>
+          <div class="cart_buttons">
+            <button type="button" class="button cart_button_clear " routerLink="/Session/Connected!0/Home/Furniture">Continue Shopping</button>
+            <button type="button" class="button cart_button_checkout" id="check" (click)="toggleDisplayDiv()">Checkout</button> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="isShowDiv">
+  <div class="cart_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <div class="cart_container">
+            <div class="cart_title"><small>Delivery Info </small></div>
+            <div class="cart_items">
+              <ul class="cart_list">
+                <div>
+                <label>Delivery type</label><br>
+                <div class="order_total_title">
+                  <ul>
+                  <input value="10" type="checkbox" #deltype>
+                  <label>standard</label><br>
+                  <input value="20" type="checkbox" #deltype>
+                  <label>express</label>
+
+                  </ul>
+                </div>
+            </div>
+                <div>
+                <label>adress</label><br>
+                <input type="text" #adr><br></div>
+
+                <div>
+                <label>More info</label><br>
+                <input type="text" #moreinfo></div>
+              </ul>
+            </div>
+            <div class="container-sm">
+
+                <li *ngFor="let fourniture of cardFourlist ;  let key = index" class="cart_item clearfix">
+                  <div class="order_total_title">{{fourniture.Name}}'s Owner BankCard :    </div>
+                  <div class="order_total_amount">{{fourniture.usercard}}</div></li>
+            </div>
+            <div class="order_total">
+              <div class="order_total_content text-md-right">
+                <div class="order_total_title">Cart Total:   {{carduser.totalPrice}} <small>TND</small></div>
+                <div class="order_total_amount"></div>
+              </div>
+            </div>
+            <div class="cart_buttons">
+              <button type="button" class="button cart_button_checkout" (click)="BuyCartanddelivery(deltype.valueAsNumber,adr.value,moreinfo.value,carduser.cartId)">Buy&deliver</button> </div>
+            </div>
           </div>
         </div>
-       </div>
-         <div class="stats mt-2">
-
-      <div class="d-flex justify-content-between p-price"><span>Description :</span><a class="fw-bolder"> <small>{{fourniture.Description}}</small></a></div>
-      <div class="d-flex justify-content-between p-price"><span>Price :</span><a class="fw-bolder">{{fourniture.Price}} <small> TND</small></a></div>
-      <div class="d-flex justify-content-between p-price"><span>Published date :</span> <small>{{fourniture.pubDate}}</small></div>
-      <div class="d-flex justify-content-between p-price"><span>Quantity :</span> <small class="fw-bolder" >{{fourniture.quantity}}</small></div>
-      <div class="d-flex justify-content-between p-price"><span>Avaibility :</span> <small class="fw-bolder">{{fourniture.type}}</small></div>
-    </div>
-              <button class="bou" (click)="AddToCart(fourniture.FournitureId,userid.valueAsNumber)" >Add to cart</button>
-
-
-         </div>
       </div>
     </div>
   </div>
-</div>
-
+<div *ngIf="isbuy">
+  <div class="cart_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <div class="cart_container">
+            <div class="cart_title"><small>Your Order Placed Succefully ! </small></div>
+            <div class="cart_items">
+              <ul class="cart_list">
+                <div>
+                  <label>Order</label><br>
+                  <div class="order_total_title">Please Send the full indicated amount to this :</div>
+              <li *ngFor="let fourniture of cardFourlist ;  let key = index" class="cart_item clearfix">
+                <div class="order_total_title">{{fourniture.Name}}'s Owner BankCard :    </div>
+                <div class="order_total_amount">{{fourniture.usercard}}</div></li>
+            </div>
+              </ul>
+            <div class="cart_buttons">
+            <button type="button" class="button cart_button_checkout" routerLink="/Session/Connected!0/Home/Furniture" >Done</button> </div>
+            </div></div></div></div></div></div></div>
 
 
 
@@ -433,4 +427,5 @@
     </div>
   </div>
 </footer>
+
 

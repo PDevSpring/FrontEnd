@@ -1,9 +1,14 @@
+export enum OrderStatus {
+  Processing, Shipped
+}
 export class Delivery {
   constructor(
-    public  deliveryId:number,
-    public moreinfo:string,
-    public Price:number,
-    public adress:string
+    public  deliveryId: number,
+    public Price: number,
+    public moreinfo: string,
+    public Deliverytype: number,
+    public adress: string,
+    public  orderstatus: OrderStatus
 
   ){}
 }
