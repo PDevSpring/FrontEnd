@@ -127,8 +127,8 @@
           <div class="dropdown-menu">
             <a class="dropdown-item " routerLink="/Session/Connected!1/Home/Profil/Messages" >Messages</a>
             <a class="dropdown-item " routerLink="/Session/Connected!1/Home/Profil/Froum" >Forum</a>
-            <a class="dropdown-item " routerLink="/Session/Connected!1/Home/Profil/AccountSettings" >Profil Settings</a>
-            <a class="dropdown-item " routerLink="/" >Logout</a>
+            <a class="dropdown-item " routerLink="/Session/Connected!1/Home/Profil/AccountSettings" routerLinkActive="active" >Profil Settings</a>
+            <a class="dropdown-item " routerLink="/" (click)="appLogout()" >Logout</a>
           </div>
         </li>
 
@@ -140,6 +140,29 @@
 
    </div>
  </nav><!-- End Header/Navbar -->
+
+
+ <div class="intro intro-carousel swiper-container position-relative">
+
+  <div class="swiper-wrapper">
+    
+        <div class="Registerform">
+          <form class="Register">
+              <input type="text" placeholder={{user.firstName}} [(ngModel)]="user.firstName" name="first" required />
+              <input type="text" placeholder={{user.lastName}} [(ngModel)]="user.lastName" name="last" required />
+              <input type="email" placeholder={{user.email}} [(ngModel)]="user.email" name="mail"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" required/>
+              <input type="text" placeholder={{user.userName}} [(ngModel)]="user.userName" name="usernamee"  required />
+              <input *ngIf="change" type="password"  placeholder="New Password"  [(ngModel)]="newpass" name="pass" pattern="[^0-9][A-Za-z]{2,20}" required/>
+              <input type="submit" value="Save" (click)="AccSett()"  />
+              <input type="submit" value="Change Password" (click)="passchange()" />
+          </form>
+        </div>
+        
+    
+ 
+  </div>
+</div><!-- End Intro Section -->
+
 
 
  <!-- ======= Footer ======= -->

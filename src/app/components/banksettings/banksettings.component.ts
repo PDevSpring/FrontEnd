@@ -1,20 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import {Loans} from '../../Models/Loans';
-import {Bank} from '../../Models/Bank';
-import {Agent} from '../../Models/Agent';
-import {LoansServiceService} from '../../Services/loans-service.service';
 import {BankServiceService} from '../../Services/bank-service.service';
 import {Observable} from 'rxjs';
 import {NgModel} from '@angular/forms';
+import { Loans } from 'src/app/Models/Loans';
+import { Bank } from 'src/app/Models/Bank';
+import { Agent } from 'src/app/Models/Agent';
+import { LoansServiceService } from 'src/app/Services/loans-service.service';
+import { LoginService } from 'src/app/Services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-banksettings',
   templateUrl: './banksettings.component.html',
-  styleUrls: ['./banksettings.component.css']
 })
 export class BanksettingsComponent implements OnInit {
 
-  constructor(private loanservice: LoansServiceService, private bankservice: BankServiceService) {
+  constructor(private router:Router, private service:LoginService,private loanservice: LoansServiceService, private bankservice: BankServiceService) {
     this.ScriptElement = document.createElement('script');
     this.ScriptElement.src = '../../../assets/js/main.js';
     document.body.appendChild(this.ScriptElement);
@@ -146,6 +147,11 @@ export class BanksettingsComponent implements OnInit {
     this.loanservice.unconfirmSimulation(loanid);
     this.ngOnInit();
 
+  }
+
+  appLogout(){
+    this.service.logoutUser();
+    this.router.navigate(['/'])
   }
 }
 

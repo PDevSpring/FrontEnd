@@ -26,6 +26,12 @@ import { ResgisterService } from './Services/resgister.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BanksettingsComponent } from './components/banksettings/banksettings.component';
+import { CookieService } from 'ngx-cookie-service';
+import { VerificationComponent } from './components/verification/verification.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { UserserviceService } from './Services/userservice.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 import {LoansServiceService} from './Services/loans-service.service';
 import {BankServiceService} from './Services/bank-service.service';
 import {ShoppingServiceService} from './Services/shopping-service.service';
@@ -59,6 +65,8 @@ import { ClientfournitureownerComponent } from './components/clientfournitureown
     AdminprofilsettComponent,
     AdminforumComponent,
     BanksettingsComponent,
+    VerificationComponent,
+    LoadingComponent,
     AgentconfirmComponent,
     SimulateComponent,
     FournituresareaComponent,
@@ -70,9 +78,11 @@ import { ClientfournitureownerComponent } from './components/clientfournitureown
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule
   ],
-  providers: [ResgisterService, LoginService, LoansServiceService, BankServiceService, ShoppingServiceService],
+  providers: [ResgisterService,LoginService,CookieService,UserserviceService, LoansServiceService, BankServiceService, ShoppingServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

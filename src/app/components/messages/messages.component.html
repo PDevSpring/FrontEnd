@@ -117,10 +117,10 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profil</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item " routerLink="/Session/Connected!0/Home/Profil/Messages" >Messages</a>
+            <a class="dropdown-item " routerLink="/Session/Connected!0/Home/Profil/Messages" routerLinkActive="active" >Messages</a>
             <a class="dropdown-item " routerLink="/Session/Connected!0/Home/Profil/Froum" >Forum</a>
             <a class="dropdown-item " routerLink="/Session/Connected!0/Home/Profil/AccountSettings" >Account Settings</a>
-            <a class="dropdown-item " routerLink="/" >Logout</a>
+            <a class="dropdown-item " routerLink="/" (click)="appLogout()" >Logout</a>
           </div>
         </li>
 

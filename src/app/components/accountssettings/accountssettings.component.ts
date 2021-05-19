@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/Models/user';
+import { UserInfos } from 'src/app/Models/UserInfos';
+import { LoginService } from 'src/app/Services/login.service';
+import { UserserviceService } from 'src/app/Services/userservice.service';
 
 @Component({
   selector: 'app-accountssettings',
@@ -7,11 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountssettingsComponent implements OnInit {
 
+  userinfos:UserInfos[] = [] ; 
+  userName:any;
+  user:User = new User("","","","",""); 
+  userslist:boolean=true; 
+  userselected:UserInfos = new UserInfos(0,"","","","","","");
+  addadm:boolean=false; 
+  id:number=0; 
+
   ScriptElement: HTMLScriptElement;
   ScriptElement1: HTMLScriptElement;
   ScriptElement2: HTMLScriptElement;
   ScriptElement3: HTMLScriptElement;
-  constructor(){
+  constructor(private service:LoginService,private serviceu:UserserviceService,private router : Router){
     this.ScriptElement = document.createElement('script'); 
     this.ScriptElement.src = "../../../assets/js/main.js" ;
     document.body.appendChild(this.ScriptElement);
@@ -30,6 +43,51 @@ export class AccountssettingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   this.getallusers();
+  }
+
+
+  getallusers(){
+    this.serviceu.getAllUsers().subscribe(res => {
+      this.userinfos=res; 
+    })
+  }
+
+  filter(){
+    if(this.userName == ""){
+    this.ngOnInit();
+    }else{
+      this.userinfos = this.userinfos.filter(res => {
+        console.log(this.userinfos);
+        return res.userName.toLocaleLowerCase().match(this.userName.toLocaleLowerCase());
+      });
+    }
+  }
+
+  regadminclick(){
+    this.userslist = !this.userslist;
+    this.addadm = !this.addadm;
+  }
+
+  registeradmin(){
+    this.serviceu.addAdmin(this.user).subscribe(res =>{
+      console.log(res); 
+    })
+  }
+  
+  appLogout(){
+    this.service.logoutUser();
+    this.router.navigate(['/'])
+  }
+
+  selected(user:UserInfos):void{
+    this.userselected=user;
+  }
+
+  deleteacc(){
+    this.serviceu.deleteUser(this.userselected.id).subscribe(res => {
+      console.log(res);
+    });
   }
 
 }

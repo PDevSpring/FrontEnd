@@ -1,0 +1,110 @@
+.containerprof{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.925);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 10;
+}
+
+.subcontainer{
+    position: fixed;
+    width: 95%;
+    height: 80%;
+    margin-left: 30px;
+    margin-top: 110px;
+    background-color: rgba(94, 94, 94, 0.849);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 10;
+    border-radius: 25px;
+    -moz-box-shadow: 10px 10px 5px rgb(0, 0, 0);
+  -webkit-box-shadow: 10px 10px 5px rgb(0, 0, 0);
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.726);
+  -moz-border-radius:25px;
+  -webkit-border-radius:25px;
+  border-radius:25px;
+}
+.avatar{
+    margin-top: 70px;
+    margin-left: 770px;
+    width: 250px;
+    -moz-box-shadow: 0px 6px 5px rgb(7, 7, 7);
+    -webkit-box-shadow: 0px 6px 5px rgb(7, 7, 7);
+    box-shadow: 0px 6px 5px rgb(0, 0, 0);
+    -moz-border-radius:190px;
+    -webkit-border-radius:190px;
+    border-radius:190px;
+    
+}
+
+*, *:before, *:after {
+    box-sizing: border-box; 
+  }
+
+.Registerform{
+   background-color: rgba(255, 255, 255, 0);
+}
+
+.Register {
+    background-color: rgba(255, 255, 255, 0.897);
+    bottom : 0;
+    box-shadow: inset 0.1rem 0 0.3rem rgba(black,0.4),  inset -0.1rem 0 0.3rem rgba(black,0.4);
+    height: 15rem;
+    left: 0;
+    margin: auto;
+    margin-top: 150px;
+    margin-left: 300px;
+    padding: 11.5rem 4rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 75rem; 
+    height: 34.8rem;
+    border-radius: 25px;
+    z-index: -1;
+
+}  
+
+
+
+input {
+    height: 2.5rem;
+    outline: black;     
+}
+
+input[type=password], input[type=email], input[type=text] {
+    background:  rgba(136, 136, 136, 0.575);
+    border: 2px solid rgb(7, 7, 7);
+    margin: 0.5rem auto;
+    padding: 1rem;
+    width: 20%; 
+    display: flex;
+}
+
+input[type=password]:focus, input[type=email]:focus, input[type=text]:focus {
+    background: rgba(255, 255, 255, 0.466);
+}
+
+input[type=submit] {
+    background: rgba(63, 63, 63, 0.397);
+    border: 1px solid black;
+    margin: 1rem auto;
+    width: 20%;
+    margin-left: 800px;
+}
+
+input[type=submit]:hover {
+    background: rgba(0, 0, 0, 0.87);
+    color: rgb(255, 255, 255);
+    border: 1px solid black;
+    margin: 1rem auto;
+    margin-left: 800px;
+}
+
+::placeholder{
+    color: rgb(43, 43, 43);
+}
